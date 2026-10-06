@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eli Ospina — economist, builder, yogi</title>
+<meta name="description" content="Economist who builds AI tools, makes music with AI and teaches yoga. Stockholm.">
+<style>
+:root{--bg:#0f0e0c;--fg:#f4efe6;--mute:#a79f91;--line:#2a2722;--a:#ffb347;--b:#7fd1b9;--c:#e58fb0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(60vmax 60vmax at 15% 10%,rgba(255,179,71,.22),transparent 60%),
+ radial-gradient(50vmax 50vmax at 85% 30%,rgba(127,209,185,.18),transparent 60%),
+ radial-gradient(55vmax 55vmax at 50% 95%,rgba(229,143,176,.16),transparent 60%);
+ animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-3%,2%) scale(1.06)}}
+main{max-width:860px;margin:0 auto;padding:12vh 20px 80px}
+.hero h1{font-size:clamp(2.6rem,8vw,5.2rem);line-height:.98;margin:0 0 18px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--c),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.25rem;color:var(--mute);max-width:36ch;margin:0}
+.roll{display:inline-block;min-width:11ch;color:var(--fg);border-bottom:2px solid var(--a)}
+section{margin-top:12vh}
+h2{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 22px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(255,255,255,.02);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--a)}
+.card h3{margin:0 0 6px;font-size:1.1rem}
+.card p{margin:0;color:var(--mute);font-size:.95rem}
+.card a{color:inherit;text-decoration:none}
+.card .k{display:inline-block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.three h3{font-size:1.5rem;margin:0 0 8px}
+.three p{color:var(--mute);margin:0}
+.c1 h3{color:var(--a)}.c2 h3{color:var(--b)}.c3 h3{color:var(--c)}
+.links a{display:inline-block;margin:0 18px 10px 0;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--mute)}
+.links a:hover{border-color:var(--a)}
+footer{margin-top:14vh;color:var(--mute);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){.bg{animation:none}.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<main>
+
+<header class="hero">
+<h1>Eli Ospina<br><em>builds things</em><br>that think.</h1>
+<p>Economist. I make <span class="roll" id="roll">AI tools</span><br>in Stockholm, in three languages.</p>
+</header>
+
+<section>
+<h2>Three practices</h2>
+<div class="three">
+<div class="c1"><h3>Build</h3><p>Software that makes accounting, public reporting and care work simpler and more private. AI is the tool, not the point.</p></div>
+<div class="c2"><h3>Breathe</h3><p>Yoga teacher. More than ten years of daily practice. Calm is a skill, and I bring it into every room I work in.</p></div>
+<div class="c3"><h3>Sound</h3><p>Making electronic music with AI. First song finished in October 2026. The next ones are coming, fast.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Projects</h2>
+<div class="row">
+<div class="card"><span class="k">Fintech</span><h3><a href="https://revisorapp.se">Revisor App</a></h3><p>Subscription bookkeeping for Swedish small businesses.</p></div>
+<div class="card"><span class="k">Govtech</span><h3>Revisor Kommun</h3><p>Prepares the municipal VAT compensation report (SKV 5933) from Unit4, Raindance and Visma exports.</p></div>
+<div class="card"><span class="k">Care · privacy</span><h3><a href="https://neuroljus.com">NeuroLjus</a></h3><p>Care intelligence that runs on the device, so sensitive data never leaves the person.</p></div>
+<div class="card"><span class="k">Research</span><h3><a href="https://neuromesure.com">Neuromesure</a></h3><p>Measures whether thinking produces real results. Econometrics meets psychometrics.</p></div>
+<div class="card"><span class="k">Civic</span><h3><a href="https://ojo-al-giro.vercel.app">Ojo al Giro</a></h3><p>Public register of the aid promised after the 2026 Colombia earthquake.</p></div>
+<div class="card"><span class="k">Safety</span><h3>Shelter Now</h3><p>Nearest shelter in an emergency in Sweden, in several languages. Built at Claude Build Day Stockholm.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Background</h2>
+<p>Economics degree from Universidad Libre, Colombia, recognised in Sweden as a master's. Before software: project coordination, economic development, financial advising, and my own restaurant. Spanish, English, Swedish.</p>
+</section>
+
+<section class="links">
+<h2>Find me</h2>
+<a href="https://github.com/eliospina">GitHub</a>
+<a href="https://linkedin.com/in/42eliza">LinkedIn</a>
+<a href="https://elispi.substack.com">Substack</a>
+<a href="https://x.com/Kymeraway">X</a>
+</section>
+
+<footer>Say hello on LinkedIn.</footer>
+</main>
+<script>
+const w=["AI tools","music","calm","things that work"];let i=0;
+setInterval(()=>{i=(i+1)%w.length;document.getElementById('roll').textContent=w[i]},2200);
+</script>
+</body>
+</html>
