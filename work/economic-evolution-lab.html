@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Economic Evolution Lab — Elizabeth Ospina</title>
+<title>Economic Evolution Lab · Elizabeth Ospina</title>
 <meta name="description" content="A reproducible library of macroeconomic models (RBC and New Keynesian DSGE) solved by first-order perturbation, with size-calibrated out-of-sample forecast evaluation. DOI 10.5281/zenodo.20836318.">
-<meta property="og:title" content="Economic Evolution Lab — technical note by Elizabeth Ospina">
+<meta property="og:title" content="Economic Evolution Lab, a technical note by Elizabeth Ospina">
 <meta property="og:description" content="A reproducible library of macroeconomic models (RBC and New Keynesian DSGE) solved by first-order perturbation, with size-calibrated out-of-sample forecast evaluation. DOI 10.5281/zenodo.20836318.">
 <script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
     <dl class="keyfacts">
       <div><dt>Type</dt><dd>Open-source research software</dd></div>
       <div><dt>Field</dt><dd>Macroeconomics, forecast evaluation</dd></div>
-      <div><dt>Data</dt><dd>FRED, United States, 1960Q1–2019Q4, frozen vintages</dd></div>
+      <div><dt>Data</dt><dd>FRED, United States, 1960Q1 to 2019Q4, frozen vintages</dd></div>
       <div><dt>Tests</dt><dd>32 correctness and size-control tests</dd></div>
       <div><dt>Stack</dt><dd>Python, SymPy, NumPy, SciPy</dd></div>
       <div><dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">10.5281/zenodo.20836318</a></dd></div>
@@ -55,14 +56,14 @@
       <li><strong>Evaluate honestly.</strong> Clark-West and Giacomini-White statistics are calibrated by Monte Carlo against a fixed-coefficient null before any p-value is read.</li>
     </ul>
     <figure class="plate">
-      <img src="../assets/eel/nk_irf.png" alt="Impulse responses of the New Keynesian model to demand, cost-push and monetary policy shocks." loading="lazy">
+      <img src="../assets/eel/nk_irf.png" alt="Impulse responses of the New Keynesian model to demand, cost-push and monetary policy shocks." width="2694" height="1203" loading="lazy">
       <figcaption>New Keynesian impulse responses to demand, cost-push and monetary shocks reproduce the textbook signatures.</figcaption>
     </figure>
 
     <h2>Findings</h2>
     <p><strong>A methodological result.</strong> Comparing a frozen forecast with a constant-gain learning forecast through the nested Clark-West test is invalid as usually applied. Constant gain carries estimation error that never vanishes, so the statistic is positive even when there is nothing to adapt to. Under a fixed-coefficient null calibrated to the data, the asymptotic one-sided 5% test rejects about 60% of the time. Monte Carlo calibration restores a correct size: about 4.7% rejection, with roughly uniform p-values.</p>
     <figure class="plate">
-      <img src="../assets/eel/size_gate.png" alt="The nested Clark-West statistic is not standard normal for fixed versus constant-gain forecasts, so size calibration is required." loading="lazy">
+      <img src="../assets/eel/size_gate.png" alt="The nested Clark-West statistic is not standard normal for fixed versus constant-gain forecasts, so size calibration is required." width="1891" height="1386" loading="lazy">
       <figcaption>The size gate: the naive statistic is not N(0,1) under the null.</figcaption>
     </figure>
     <p><strong>A substantive null result.</strong> On a long split chosen to favour adaptation (train 1960Q1 to 1984Q4, evaluate 1985Q1 to 2019Q4, n = 140), constant-gain learning lowers one-quarter-ahead inflation RMSE by 6.2%. The size-correct test does not reject the no-adaptation null (Monte Carlo p between 0.15 and 0.17, stable across seeds, gains and alternative nulls). The small edge does not come from the regime change it was expected to help with, and it is driven by a few outliers. An earlier apparent advantage of learning over rational expectations was traced to relaxing the model's cross-equation restrictions, not to adaptation.</p>

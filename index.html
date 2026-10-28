@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elizabeth Ospina — Economics and technology</title>
+<title>Elizabeth Ospina · Economics and technology</title>
 <meta name="description" content="Economist working on economic models, legal rules and public data that can be checked: macroeconomic research with a citable DOI, Swedish bookkeeping and municipal VAT systems, a privacy-first care system and public-interest data projects.">
-<meta property="og:title" content="Elizabeth Ospina — Economics and technology">
+<meta property="og:title" content="Elizabeth Ospina · Economics and technology">
 <meta property="og:description" content="Economic models, legal rules and public data that can be checked. Research, method and evidence for every project.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://eliospina.github.io/portrait.jpg">
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Elizabeth Ospina","jobTitle":"Economist","address":{"@type":"PostalAddress","addressLocality":"Stockholm","addressCountry":"SE"},"alumniOf":"Universidad Libre","knowsLanguage":["es","en","sv"],"sameAs":["https://orcid.org/0009-0004-7291-3340","https://github.com/eliospina","https://linkedin.com/in/42eliza","https://elispi.substack.com"]}
@@ -60,7 +61,7 @@
 
   <section class="wrap" aria-label="Key figures">
     <div class="figures">
-      <div class="fig-item"><span class="value num">60%<small> → 5%</small></span><span class="what">How often a standard forecast test wrongly rejects a true null, before and after Monte Carlo calibration.</span><span class="src">Economic Evolution Lab</span></div>
+      <div class="fig-item"><span class="value num">60%</span><span class="what">How often a standard forecast test wrongly rejects a true null, before and after Monte Carlo calibration.</span><span class="src">Economic Evolution Lab</span></div>
       <div class="fig-item"><span class="value num">1,710</span><span class="what">Open-access studies, each DOI checked in Crossref, behind the care system's crisis protocols.</span><span class="src">NeuroLjus</span></div>
       <div class="fig-item"><span class="value num">760<small>+</small></span><span class="what">Automated tests across the projects below: correctness, validation and statistical size checks.</span><span class="src">Seven projects</span></div>
       <div class="fig-item"><span class="value num">62,739</span><span class="what">Active public shelters in Sweden mapped, 98.8% matched to a street address.</span><span class="src">Bunker Now</span></div>
@@ -79,7 +80,7 @@
         <p>A reproducible library of macroeconomic models: a real business cycle model and a three-equation New Keynesian DSGE. Equilibrium conditions are written symbolically and solved to first order with the generalized Schur (QZ) method of Klein (2000), with determinacy checked by the Blanchard-Kahn condition. Rational expectations and adaptive learning can be swapped inside the same model.</p>
         <p>The standard Clark-West test, applied to fixed versus constant-gain learning forecasts, rejects a true null about 60% of the time instead of 5%. The library calibrates it by Monte Carlo. Under the corrected test, the 6.2% gain in one-quarter-ahead US inflation forecasts over 1985 to 2019 is not statistically significant.</p>
         <div class="finding">
-          <div><span class="value num">60%<span class="arrow">→</span>4.7%</span><span class="what">Rejection rate of a nominal 5% test, naive versus calibrated.</span></div>
+          <div><span class="value num">60%</span><span class="what">Rejection rate of a nominal 5% test before calibration. After it: 4.7%.</span></div>
           <div><span class="value num">p ≈ 0.16</span><span class="what">For the 6.2% forecasting gain from adaptive learning, after correction.</span></div>
         </div>
         <div class="links">
@@ -101,7 +102,7 @@
         </details>
       </div>
       <figure class="plate">
-        <img src="assets/eel/size_gate.png" alt="Histogram of the Clark-West statistic under a no-adaptation null, shifted well to the right of the standard normal curve the naive test assumes." width="1832" height="1283">
+        <img src="assets/eel/size_gate.png" alt="Histogram of the Clark-West statistic under a no-adaptation null, shifted well to the right of the standard normal curve the naive test assumes." width="1891" height="1386">
         <figcaption><b>Fig. 1</b>Under a fixed-coefficient null the naive Clark-West statistic is not standard normal, so its p-values cannot be trusted. Monte Carlo calibration restores a correct 5% test.</figcaption>
       </figure>
     </div>
@@ -114,50 +115,167 @@
     </div>
 
     <div class="group">
-      <div class="group-head"><p class="eyebrow">Applied economics</p><p class="eyebrow">01 – 03</p></div>
+      <div class="group-head"><p class="eyebrow">Featured systems</p><p class="eyebrow">01 to 02</p></div>
 
-      <article class="project">
-        <div class="idx">01</div>
-        <div>
-          <h3>Revisor App</h3>
-          <p class="claim">Swedish bookkeeping law, written as tested code.</p>
-          <span class="tag accent">Live product</span>
-        </div>
-        <div class="detail">
-          <dl>
-            <dt>Problem</dt><dd>Small Swedish companies need bookkeeping that follows Swedish accounting and VAT rules without hiring an accountant for every question.</dd>
-            <dt>Method</dt><dd>Double-entry validation in exact decimal arithmetic, the full SKV 4700 VAT return mapping, SIE 4 export, and Skatteverket's 2026 tax tables imported with checksummed provenance. The Claude connector is read-only.</dd>
-            <dt>Evidence</dt><dd>About 465 automated tests run on every change.</dd>
-            <dt>Limit</dt><dd class="limit">VAT filing produces a signed draft; direct submission to Skatteverket is not live yet.</dd>
-          </dl>
-          <div class="links"><a class="textlink" href="work/revisor.html">Technical note</a><a class="textlink" href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a></div>
+      <article class="featured">
+        <div class="research">
+          <div>
+            <p class="idx-label">01</p>
+            <div class="tag-row"><span class="tag accent">Live product</span><span class="tag accent">Municipal pilot</span><span class="tag">Applied economics</span></div>
+            <h3>Revisor</h3>
+            <p class="claim-lg">Swedish bookkeeping and municipal VAT law, written as tested code.</p>
+            <p>Revisor App keeps the books of small Swedish companies. Every voucher must balance in exact decimal arithmetic, balances are kept in whole öre, and corrections are made by reversal, never by editing. The VAT return follows all fields of Skatteverket's form SKV 4700, books export in the SIE 4 standard, and the 2026 tax tables are imported from Skatteverket with a checksum that proves their origin. Its Claude connector can only read.</p>
+            <p>Revisor Kommun applies the same discipline to municipal VAT compensation under LEMK (SFS 2005:807). Six rule-based checks, each citing its statute or case law such as HFD 2013:79 and HFD 2016:51, produce indicative findings and a 15-item evidence checklist for the SKV 5933 claim. The software never fills in the amounts: the municipality decides.</p>
+            <div class="finding">
+              <div><span class="value num">465</span><span class="what">Automated tests across VAT, SIE, payroll, ledger invariants and the municipal checks.</span></div>
+              <div><span class="value num">6</span><span class="what">Legal checks for municipalities, each linked to its source and a confidence level.</span></div>
+            </div>
+            <p class="limit-line"><span>Limit</span>VAT filing produces a signed draft, direct submission is not live, and the municipal module has not yet run on a real export.</p>
+            <div class="links"><a class="textlink" href="work/revisor.html">Technical note</a><a class="textlink" href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a><a class="textlink" href="https://revisorapp.se/kommun/pilot" target="_blank" rel="noopener">Municipal pilot</a></div>
+          </div>
+          <figure class="plate diagram">
+            <svg viewBox="0 0 640 470" role="img" aria-labelledby="rev-title">
+              <title id="rev-title">How Revisor works: inputs flow into a double-entry ledger with invariants, which produces the VAT return, SIE export and reports; a read-only Claude connector sits on top; a municipal branch runs six legal checks on ledger exports.</title>
+              <g font-family="Geist, system-ui, sans-serif" font-size="12" fill="var(--ink)">
+                <!-- connector -->
+                <rect x="230" y="14" width="200" height="46" rx="3" fill="var(--chip)" stroke="var(--rule)"/>
+                <text x="330" y="33" text-anchor="middle" font-weight="500">Claude connector</text>
+                <text x="330" y="49" text-anchor="middle" font-size="11" fill="var(--mute)">5 tools, all read-only · OAuth 2.1</text>
+                <line x1="330" y1="60" x2="330" y2="104" stroke="var(--ink)" stroke-dasharray="3 3"/>
+                <text x="338" y="88" font-size="10.5" fill="var(--mute)">reads only</text>
+                <!-- inputs -->
+                <rect x="20" y="110" width="170" height="124" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="32" y="131" font-weight="500">Inputs</text>
+                <text x="32" y="153" font-size="11.5">Receipts, OCR in the browser</text>
+                <text x="32" y="172" font-size="11.5">Invoices, Peppol BIS 3.0</text>
+                <text x="32" y="191" font-size="11.5">Bank statements</text>
+                <text x="32" y="210" font-size="11.5">Payroll</text>
+                <line x1="190" y1="172" x2="228" y2="172" stroke="var(--ink)"/><polygon points="228,168 236,172 228,176" fill="var(--ink)"/>
+                <!-- ledger -->
+                <rect x="236" y="110" width="188" height="124" rx="3" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+                <text x="248" y="131" font-weight="500">Double-entry ledger</text>
+                <text x="248" y="153" font-size="11.5">debit = credit, exact decimals</text>
+                <text x="248" y="172" font-size="11.5">balances in whole öre</text>
+                <text x="248" y="191" font-size="11.5">corrections by reversal only</text>
+                <text x="248" y="210" font-size="11.5">audit log on every change</text>
+                <line x1="424" y1="172" x2="462" y2="172" stroke="var(--ink)"/><polygon points="462,168 470,172 462,176" fill="var(--ink)"/>
+                <!-- outputs -->
+                <rect x="470" y="110" width="150" height="124" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="482" y="131" font-weight="500">Outputs</text>
+                <text x="482" y="153" font-size="11.5">VAT return, SKV 4700</text>
+                <text x="482" y="168" font-size="10.5" fill="var(--mute)">signed draft</text>
+                <text x="482" y="191" font-size="11.5">SIE 4 export</text>
+                <text x="482" y="210" font-size="11.5">Reports, profit and loss</text>
+                <!-- reference data -->
+                <line x1="330" y1="234" x2="330" y2="262" stroke="var(--ink)" stroke-dasharray="3 3"/>
+                <rect x="236" y="262" width="188" height="44" rx="3" fill="var(--chip)" stroke="var(--rule)"/>
+                <text x="330" y="280" text-anchor="middle" font-size="11.5">Official tables with checksums</text>
+                <text x="330" y="296" text-anchor="middle" font-size="10.5" fill="var(--mute)">BAS 2026 · Skatteverket tax tables 2026</text>
+                <!-- kommun branch -->
+                <line x1="20" y1="336" x2="620" y2="336" stroke="var(--rule)"/>
+                <text x="20" y="328" font-family="'Geist Mono', monospace" font-size="10" letter-spacing="1.2" fill="var(--accent)">REVISOR KOMMUN</text>
+                <rect x="20" y="352" width="170" height="92" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="32" y="373" font-weight="500">Municipal ledger export</text>
+                <text x="32" y="394" font-size="11.5">CSV or SIE file</text>
+                <text x="32" y="413" font-size="11.5">reconciled against balances</text>
+                <line x1="190" y1="398" x2="228" y2="398" stroke="var(--ink)"/><polygon points="228,394 236,398 228,402" fill="var(--ink)"/>
+                <rect x="236" y="352" width="188" height="92" rx="3" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+                <text x="248" y="373" font-weight="500">Six legal checks</text>
+                <text x="248" y="394" font-size="11.5">LEMK 2005:807, ordinance,</text>
+                <text x="248" y="413" font-size="11.5">HFD 2013:79, HFD 2016:51</text>
+                <text x="248" y="432" font-size="10.5" fill="var(--mute)">no language model in this branch</text>
+                <line x1="424" y1="398" x2="462" y2="398" stroke="var(--ink)"/><polygon points="462,394 470,398 462,402" fill="var(--ink)"/>
+                <rect x="470" y="352" width="150" height="92" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="482" y="373" font-weight="500">Indicative findings</text>
+                <text x="482" y="394" font-size="11.5">legal source, confidence</text>
+                <text x="482" y="413" font-size="11.5">SKV 5933 checklist</text>
+                <text x="482" y="432" font-size="10.5" fill="var(--accent)">amounts never filled in</text>
+              </g>
+            </svg>
+            <figcaption><b>Fig. 2</b>Revisor's architecture as implemented: rules and invariants live in the ledger, the language model only reads through the connector, and the municipal branch cites the law for every finding.</figcaption>
+          </figure>
         </div>
       </article>
 
-      <article class="project">
-        <div class="idx">02</div>
-        <div>
-          <h3>Revisor Kommun</h3>
-          <p class="claim">Municipal VAT compensation, checked rule by rule against the law.</p>
-          <span class="tag accent">Pilot</span>
-        </div>
-        <div class="detail">
-          <dl>
-            <dt>Problem</dt><dd>Municipalities can leave VAT compensation unclaimed, or claim it wrongly, under the law on VAT compensation for municipalities (LEMK, SFS 2005:807).</dd>
-            <dt>Method</dt><dd>Six rule-based checks grounded in LEMK, its ordinance (SFS 2005:811) and case law such as HFD 2013:79 and HFD 2016:51. Each finding cites its legal source and a confidence level. A ledger in whole öre adds period locks and reconciliation against the municipality's own balances.</dd>
-            <dt>Evidence</dt><dd>31 test files for the municipal module and a 15-item evidence checklist for the SKV 5933 claim.</dd>
-            <dt>Limit</dt><dd class="limit">Not yet run on a real municipal export. Amounts on the claim form are never filled in automatically.</dd>
-          </dl>
-          <div class="links"><a class="textlink" href="work/revisor.html#kommun">Technical note</a><a class="textlink" href="https://revisorapp.se/kommun/pilot" target="_blank" rel="noopener">Pilot</a></div>
+      <article class="featured">
+        <div class="research">
+          <div>
+            <p class="idx-label">02</p>
+            <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Open source</span><span class="tag">Care and cognition</span></div>
+            <h3>NeuroLjus</h3>
+            <p class="claim-lg">A care protocol a caregiver can write in plain words, with safety enforced in code.</p>
+            <p>Autistic people who need full support often cannot say what they need. In NeuroLjus a caregiver describes the person in Spanish, English or Swedish. A local risk screen runs before anything leaves the device. The language model is allowed to do one thing: propose settings inside a strict schema. Every value is then checked and clamped, safety limits can only be raised, and a deterministic, tested planner writes the protocol. Today the phone is the body: it dims the screen, plays brown noise at a capped volume and shows a visual card, and the caregiver starts and stops every routine.</p>
+            <p>The protocols rest on a library of 1,710 open-access studies, each DOI verified in Crossref with retracted papers excluded, and the on-device camera layer measures movement and landmarks, never emotions. A validation plan following TRIPOD+AI is published before any data is collected.</p>
+            <div class="finding">
+              <div><span class="value num">1,710</span><span class="what">Open-access studies behind the ten crisis protocols, including 242 systematic reviews.</span></div>
+              <div><span class="value num">146</span><span class="what">Automated tests over the planner, the risk screen, the signal maths and the voice line.</span></div>
+            </div>
+            <p class="limit-line"><span>Limit</span>No physical robot is connected yet, rejection by the person is not detected automatically, and the camera signals have not been validated with people.</p>
+            <div class="links"><a class="textlink" href="work/neuroljus.html">Technical note</a><a class="textlink" href="https://neuroljus.com" target="_blank" rel="noopener">neuroljus.com</a><a class="textlink" href="https://github.com/eliospina/neuroljus-canon-stable" target="_blank" rel="noopener">Source code</a></div>
+          </div>
+          <figure class="plate diagram">
+            <svg viewBox="0 0 640 470" role="img" aria-labelledby="nl-title">
+              <title id="nl-title">How NeuroLjus turns a caregiver's words into a care protocol: a local risk screen, a language model that only proposes settings, a sanitiser with a safety floor, a deterministic planner, and execution on a phone or a robot export. Every step except the model's proposal is enforced in code.</title>
+              <g font-family="Geist, system-ui, sans-serif" font-size="12" fill="var(--ink)">
+                <!-- step boxes -->
+                <rect x="20" y="14" width="400" height="52" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="34" y="35" font-weight="500">Caregiver describes the person</text>
+                <text x="34" y="53" font-size="11.5" fill="var(--mute)">plain language · Spanish, English, Swedish · 500 characters</text>
+                <line x1="220" y1="66" x2="220" y2="84" stroke="var(--ink)"/><polygon points="216,84 220,92 224,84" fill="var(--ink)"/>
+
+                <rect x="20" y="92" width="400" height="52" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="34" y="113" font-weight="500">Local risk screen</text>
+                <text x="34" y="131" font-size="11.5" fill="var(--mute)">before any network call · bleeding, self-injury, seizures</text>
+                <line x1="420" y1="118" x2="456" y2="118" stroke="var(--accent)"/><polygon points="456,114 464,118 456,122" fill="var(--accent)"/>
+                <rect x="464" y="96" width="156" height="44" rx="3" fill="var(--paper)" stroke="var(--accent)"/>
+                <text x="542" y="113" text-anchor="middle" font-size="11" fill="var(--accent)">risk found: notify caregiver,</text>
+                <text x="542" y="128" text-anchor="middle" font-size="11" fill="var(--accent)">log, emergency number</text>
+                <line x1="220" y1="144" x2="220" y2="162" stroke="var(--ink)"/><polygon points="216,162 220,170 224,162" fill="var(--ink)"/>
+
+                <rect x="20" y="170" width="400" height="52" rx="3" fill="var(--chip)" stroke="var(--rule)"/>
+                <text x="34" y="191" font-weight="500">Language model proposes settings</text>
+                <text x="34" y="209" font-size="11.5" fill="var(--mute)">strict JSON schema · settings only, never the protocol</text>
+                <line x1="220" y1="222" x2="220" y2="240" stroke="var(--ink)"/><polygon points="216,240 220,248 224,240" fill="var(--ink)"/>
+
+                <rect x="20" y="248" width="400" height="52" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="34" y="269" font-weight="500">Check and clamp</text>
+                <text x="34" y="287" font-size="11.5" fill="var(--mute)">values outside the schema dropped · safety floor can only be raised</text>
+                <line x1="220" y1="300" x2="220" y2="318" stroke="var(--ink)"/><polygon points="216,318 220,326 224,318" fill="var(--ink)"/>
+
+                <rect x="20" y="326" width="400" height="52" rx="3" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+                <text x="34" y="347" font-weight="500">Deterministic planner writes the protocol</text>
+                <text x="34" y="365" font-size="11.5" fill="var(--mute)">7 commands, 5 safety exceptions · covered by determinism tests</text>
+                <line x1="220" y1="378" x2="220" y2="396" stroke="var(--ink)"/><polygon points="216,396 220,404 224,396" fill="var(--ink)"/>
+
+                <rect x="20" y="404" width="400" height="52" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
+                <text x="34" y="425" font-weight="500">Execution</text>
+                <text x="34" y="443" font-size="11.5" fill="var(--mute)">phone today: dim, brown noise, vibration, card · robot export specified</text>
+
+                <!-- right-hand labels -->
+                <g font-family="'Geist Mono', monospace" font-size="10" letter-spacing="1.2">
+                  <text x="464" y="44" fill="var(--mute)">HUMAN</text>
+                  <text x="464" y="200" fill="var(--mute)">MODEL · PROPOSES ONLY</text>
+                  <text x="464" y="278" fill="var(--accent)">CODE</text>
+                  <text x="464" y="356" fill="var(--accent)">CODE · TESTED</text>
+                  <text x="464" y="434" fill="var(--mute)">CAREGIVER START / STOP</text>
+                </g>
+              </g>
+            </svg>
+            <figcaption><b>Fig. 3</b>The NeuroLjus pipeline as implemented. The model acts in one step and only proposes; every other step is deterministic code, and the caregiver keeps the Start and Stop buttons.</figcaption>
+          </figure>
         </div>
       </article>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><p class="eyebrow">Further work</p><p class="eyebrow">03 to 06</p></div>
 
       <article class="project">
         <div class="idx">03</div>
         <div>
           <h3>Nicho Radar</h3>
           <p class="claim">Where Nordic public money buys the same software again and again.</p>
-          <span class="tag">Prototype</span>
+          <div class="tag-row"><span class="tag">Prototype</span><span class="tag">Applied economics</span></div>
         </div>
         <div class="detail">
           <dl>
@@ -169,35 +287,13 @@
           <div class="links"><a class="textlink" href="work/nicho-radar.html">Technical note</a><a class="textlink" href="https://nordic-nicho-radar.vercel.app" target="_blank" rel="noopener">Live demo</a></div>
         </div>
       </article>
-    </div>
-
-    <div class="group">
-      <div class="group-head"><p class="eyebrow">Care and cognition</p><p class="eyebrow">04 – 05</p></div>
 
       <article class="project">
         <div class="idx">04</div>
         <div>
-          <h3>NeuroLjus</h3>
-          <p class="claim">A care protocol a caregiver can write in plain words, with safety enforced in code.</p>
-          <span class="tag">Research prototype</span>
-        </div>
-        <div class="detail">
-          <dl>
-            <dt>Problem</dt><dd>Autistic people who need full support often cannot say what they need, and their caregivers carry that work alone.</dd>
-            <dt>Method</dt><dd>A language model only proposes settings inside a strict schema. A deterministic, tested planner turns them into a portable care protocol. Local risk escalation, safety limits the model cannot lower and a caregiver who starts and stops every routine are enforced in code. The camera layer runs on the device and measures movement, not emotions.</dd>
-            <dt>Evidence</dt><dd>A library of 1,710 open-access studies with DOIs checked in Crossref and retracted papers excluded, 10 crisis protocols that cite it, 146 automated tests, and a published validation plan.</dd>
-            <dt>Limit</dt><dd class="limit">No physical robot is connected yet, and the signals have not been validated with people.</dd>
-          </dl>
-          <div class="links"><a class="textlink" href="work/neuroljus.html">Technical note</a><a class="textlink" href="https://neuroljus.com" target="_blank" rel="noopener">neuroljus.com</a><a class="textlink" href="https://github.com/eliospina/neuroljus-canon-stable" target="_blank" rel="noopener">Source code</a></div>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="idx">05</div>
-        <div>
           <h3>Neuromesure</h3>
           <p class="claim">Thinking time, measured with a taxonomy from cognitive science.</p>
-          <span class="tag">Prototype</span>
+          <div class="tag-row"><span class="tag">Prototype</span><span class="tag">Care and cognition</span></div>
         </div>
         <div class="detail">
           <dl>
@@ -209,17 +305,13 @@
           <div class="links"><a class="textlink" href="work/neuromesure.html">Technical note</a><a class="textlink" href="https://neuromesure.com" target="_blank" rel="noopener">neuromesure.com</a></div>
         </div>
       </article>
-    </div>
-
-    <div class="group">
-      <div class="group-head"><p class="eyebrow">Public interest</p><p class="eyebrow">06 – 07</p></div>
 
       <article class="project">
-        <div class="idx">06</div>
+        <div class="idx">05</div>
         <div>
           <h3>Ojo al Giro</h3>
           <p class="claim">Promised earthquake aid, each figure traced to its source.</p>
-          <span class="tag accent">Live register</span>
+          <div class="tag-row"><span class="tag accent">Live register</span><span class="tag">Public interest</span></div>
         </div>
         <div class="detail">
           <dl>
@@ -233,11 +325,11 @@
       </article>
 
       <article class="project">
-        <div class="idx">07</div>
+        <div class="idx">06</div>
         <div>
           <h3>Bunker Now</h3>
           <p class="claim">The nearest shelter, in your language, in one tap.</p>
-          <span class="tag accent">Live app</span>
+          <div class="tag-row"><span class="tag accent">Live app</span><span class="tag">Public interest</span></div>
         </div>
         <div class="detail">
           <dl>
