@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicho Radar — Elizabeth Ospina</title>
+<meta name="description" content="Which software needs Nordic public buyers procure repeatedly: 597 TED notices (CPV 48 and 72) grouped along the CPV hierarchy into 56 niches with at least two distinct buyers.">
+<script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="wrap site-header">
+  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#find">Find me</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+  </nav>
+</header>
+<main class="note">
+  <a class="back" href="../index.html#work">Back to all work</a>
+  <h1>Nicho Radar</h1>
+  <div class="meta"><span class="status">Prototype</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
+  <p class="abstract">A map of the software and IT needs that many separate Nordic public buyers procure. It uses official EU procurement notices and groups them by their procurement codes, so a builder can see where one product could serve many buyers.</p>
+
+  <h2>Data</h2>
+  <ul>
+    <li><strong>Source:</strong> TED, Tenders Electronic Daily, the EU's official journal for public procurement, through its public Search API (version 3).</li>
+    <li><strong>Query:</strong> notices with CPV division 48 (software packages and information systems) or 72 (IT services), from buyers in Sweden, Norway, Denmark and Finland, newest first.</li>
+    <li><strong>Sample:</strong> 597 notices published from 26 August to 23 September 2026, fetched on 23 September 2026. By country: Sweden 203, Finland 180, Norway 166, Denmark 48. 418 of them publish an estimated value.</li>
+    <li><strong>Cleaning:</strong> duplicates removed by publication number, country and CPV re-checked, multilingual fields parsed, and CPV codes normalised to eight digits.</li>
+  </ul>
+
+  <h2>Method</h2>
+  <p>CPV, the Common Procurement Vocabulary, is the EU's hierarchical code list for what is being bought. Each notice takes the label of its most specific CPV code. Codes without a label climb the hierarchy until one matches, using 127 hand-written labels in English and Spanish.</p>
+  <p>A niche counts only when at least two distinct buyers procure it, with buyer names normalised before comparison. This yields 56 niches covering 566 of the 597 notices. Estimated values are converted to euros at fixed approximate rates.</p>
+  <p>The published grouping uses no language model. An alternative pipeline that labels titles with a model and merges near-duplicates exists in the code but was not used for this data. Search in the app can use a model, and its answers are checked against the real buyer list.</p>
+
+  <h2>Evidence</h2>
+  <p>Six automated tests on synthetic data. The app serves the frozen dataset and never calls TED live, so results are reproducible.</p>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>The sample is a four-week snapshot, because the query kept the newest 600 notices. A full year would need paging through about 8,000 matches.</li>
+    <li>Niches are CPV categories, so the largest are broad, such as "software packages and information systems" with 70 buyers.</li>
+    <li>Values are the buyers' own estimates, and currency rates are approximate.</li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://nordic-nicho-radar.vercel.app" target="_blank" rel="noopener">Live demo</a></li>
+    <li><a href="https://ted.europa.eu" target="_blank" rel="noopener">TED, Tenders Electronic Daily</a></li>
+  </ul>
+  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+</main>
+<footer class="wrap site-footer">
+  <span>Elizabeth Ospina</span>
+  <a href="../index.html">Home</a>
+</footer>
+<script>
+document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});
+</script>
+</body>
+</html>

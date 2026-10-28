@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuromesure — Elizabeth Ospina</title>
+<meta name="description" content="Turns free-text thought reports into structured time-use data, labelled with a taxonomy drawn from cognitive science, with descriptive time-weighted metrics. A prototype measurement framework.">
+<script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="wrap site-header">
+  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#find">Find me</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+  </nav>
+</header>
+<main class="note">
+  <a class="back" href="../index.html#work">Back to all work</a>
+  <h1>Neuromesure</h1>
+  <div class="meta"><span class="status">Prototype</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
+  <p class="abstract">Neuromesure turns free-text reports of what a person was thinking into structured time-use data. A language model labels each thought with a taxonomy drawn from published cognitive-science frameworks, and deterministic functions compute descriptive, time-weighted metrics. It measures and shows data; it does not give advice.</p>
+
+  <h2>What is measured</h2>
+  <ul>
+    <li><strong>Eight modes,</strong> which can overlap: focused, deciding, exploring, reflecting, anticipating, looping, relating and maintaining.</li>
+    <li><strong>Dynamics:</strong> directed, free or stuck, following the dynamic framework of spontaneous thought (Christoff et al., 2016).</li>
+    <li><strong>Time orientation</strong> (past, present, future or mixed), origin and topic.</li>
+    <li><strong>Duration,</strong> from start and end times or from phrases such as "two hours", read by a rule-based parser without AI.</li>
+    <li><strong>Self-reported results:</strong> whether the thinking led to a result, answered yes, no or unsure.</li>
+  </ul>
+
+  <h2>Method</h2>
+  <p>A language model receives a fixed prompt with worked examples and returns structured labels, which the server checks against the allowed lists. All metrics are pure, unit-tested functions:</p>
+  <ul>
+    <li>Time per mode, weighted by duration.</li>
+    <li>The grounded share: hours not spent in stuck or looping thought.</li>
+    <li>What stuck time was about, by topic.</li>
+    <li>A result rate per topic: hours answered "yes" divided by hours answered "yes" or "no".</li>
+  </ul>
+  <p>Below five thoughts or two hours, the app shows "collecting" instead of a number. All comparisons are worded as "coincides", never "causes".</p>
+
+  <h2>Grounding in the literature</h2>
+  <p>The design draws on Christoff, Irving, Fox, Spreng and Andrews-Hanna (2016) for the dynamics of thought, Killingsworth and Gilbert (2010) on mind-wandering in daily life, and Watkins (2008) on constructive and unconstructive repetitive thought. The project notes where evidence is mixed, for example on mind-wandering and creativity.</p>
+
+  <h2>Evidence</h2>
+  <div class="table-box">
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Unit tests</td><td>94 tests in 10 files, all passing</td></tr>
+      <tr><td>Label stability</td><td>Identical mode sets in 11 of 12 thoughts (92%) across repeated runs</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Stability means the model gives the same answer twice. It does not yet show that the answer is correct.</p>
+
+  <h2>Limitations</h2>
+  <p>Neuromesure is a prototype measurement framework, not a validated psychometric instrument. Validation would need:</p>
+  <ul>
+    <li>Accuracy against thoughts labelled by experts, with inter-rater agreement such as Cohen's kappa.</li>
+    <li>Reliability and factor structure for the calibration questionnaire.</li>
+    <li>Evidence that the labels relate to established measures, such as rumination scales.</li>
+    <li>Test sets kept separate from the prompt examples, a larger and more varied sample, and an outcome measure that is not self-reported.</li>
+  </ul>
+
+  <h2>References and links</h2>
+  <ul>
+    <li><a href="https://neuromesure.com" target="_blank" rel="noopener">neuromesure.com</a></li>
+    <li>Christoff, K., Irving, Z. C., Fox, K. C. R., Spreng, R. N. and Andrews-Hanna, J. R. (2016). Mind-wandering as spontaneous thought: a dynamic framework. <em>Nature Reviews Neuroscience</em>, 17(11).</li>
+    <li>Killingsworth, M. A. and Gilbert, D. T. (2010). A wandering mind is an unhappy mind. <em>Science</em>, 330(6006).</li>
+    <li>Watkins, E. R. (2008). Constructive and unconstructive repetitive thought. <em>Psychological Bulletin</em>, 134(2).</li>
+  </ul>
+  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+</main>
+<footer class="wrap site-footer">
+  <span>Elizabeth Ospina</span>
+  <a href="../index.html">Home</a>
+</footer>
+<script>
+document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});
+</script>
+</body>
+</html>

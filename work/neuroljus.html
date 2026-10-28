@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuroLjus — Elizabeth Ospina</title>
+<meta name="description" content="A privacy-first care system for autistic people who need full support: a language model proposes settings, a deterministic tested planner writes the care protocol, and safety rules are enforced in code.">
+<script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="wrap site-header">
+  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#find">Find me</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+  </nav>
+</header>
+<main class="note">
+  <a class="back" href="../index.html#work">Back to all work</a>
+  <h1>NeuroLjus</h1>
+  <div class="meta"><span class="status">Research prototype</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
+  <p class="abstract">An open-source care system for autistic people who need full support, many of them non-speaking, and for their caregivers. A language model only proposes settings. A deterministic, tested planner writes the care protocol, and hard safety rules are enforced in code. It is a research prototype, not a medical device.</p>
+
+  <h2>Evidence base</h2>
+  <ul>
+    <li><strong>Autism research library:</strong> 1,710 open-access studies from Europe PMC. Every DOI is checked in Crossref and retracted papers are excluded. It includes 242 systematic reviews, 130 meta-analyses and 316 controlled trials.</li>
+    <li><strong>Ten crisis protocols</strong> in Spanish, English and Swedish. Each uses an antecedent-behaviour-consequence log, treats the possible function of a behaviour (escape, request, sensory, pain) only as a hypothesis, and cites three to six studies from the library. A test checks that every citation exists.</li>
+    <li><strong>A pre-data validation plan</strong> following TRIPOD+AI, with agreement against human annotators (kappa, intraclass correlation, Bland-Altman) and a bias audit across skin tones. It rules out emotion recognition.</li>
+  </ul>
+
+  <h2>Method: from plain language to a care protocol</h2>
+  <ol>
+    <li>A local risk screen runs before any network call. Text about bleeding, self-injury or seizures produces a plan that only notifies the caregiver and logs the event, with the emergency number for the caller's country.</li>
+    <li>Otherwise the language model receives the caregiver's description and must answer in a strict schema that contains settings only.</li>
+    <li>Every setting outside the allowed values is dropped or clamped. Safety exceptions from the chosen scenario are a floor the model can add to but never lower.</li>
+    <li>A deterministic planner writes the protocol and its export packets. The model never writes the protocol itself, and the planner is covered by determinism tests.</li>
+    <li>If the model is unavailable, the closest preset is used.</li>
+  </ol>
+  <p>The protocol vocabulary has 7 commands, 5 safety exceptions and 6 scenarios, and can be exported for 4 kinds of target.</p>
+
+  <h2>The phone as the first body</h2>
+  <p>Today the protocol runs on a phone. It can dim the screen, play brown noise at a capped volume, vibrate and show a visual card, while keeping a local log. A routine starts only when the caregiver presses Start, and Pause and Stop stay on screen. A sensory profile can only lower stimulation, never raise it.</p>
+
+  <h2>NL-VISION: on-device signals</h2>
+  <p>A camera layer runs in the browser with MediaPipe face and hand landmark models. It computes blink rate, mouth opening, face and hand movement, and hand-near-face, and stores one row per second on the device. It measures movement and landmarks, not emotions. Its thresholds are fixed by design and not yet fitted to data, as the validation plan states.</p>
+
+  <h2>Privacy</h2>
+  <ul>
+    <li><strong>Stays on the device:</strong> video, landmarks, the sensory profile, run records and the caregiver's pattern notebook.</li>
+    <li><strong>Leaves the device:</strong> the caregiver's written description, the latest numeric camera summary, and an anonymous count of what helped. Logs record error types, never the text.</li>
+  </ul>
+
+  <h2>Quality</h2>
+  <p>146 automated tests in 24 files cover the planner, the intent parser, the risk screen, profile fusion, the phone body, the signal maths, the library pipeline, the protocols and the voice line. Continuous integration runs the tests and a type check, and a guard blocks unreviewed changes to the core vision files. In a scripted evaluation, the voice line passed 38 of 42 scenarios.</p>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>No physical robot is connected yet. The robot formats (ROS 2, MQTT, HTTP) are specified exports, not a working integration.</li>
+    <li>Rejection by the person is not detected automatically. Today the caregiver's Stop button is the stop.</li>
+    <li>The camera signals have not been validated, and no study with people has been done yet.</li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://neuroljus.com" target="_blank" rel="noopener">neuroljus.com</a></li>
+    <li><a href="https://github.com/eliospina/neuroljus-canon-stable" target="_blank" rel="noopener">Code on GitHub</a></li>
+    <li>Collins, G. S. et al. (2024). TRIPOD+AI statement. <em>BMJ</em>, 385, e078378.</li>
+  </ul>
+  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+</main>
+<footer class="wrap site-footer">
+  <span>Elizabeth Ospina</span>
+  <a href="../index.html">Home</a>
+</footer>
+<script>
+document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});
+</script>
+</body>
+</html>

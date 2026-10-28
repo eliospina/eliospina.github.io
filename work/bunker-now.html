@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bunker Now — Elizabeth Ospina</title>
+<meta name="description" content="The nearest of Sweden&#x27;s 62,739 active public shelters, from the register of Myndigheten för civilt försvar, with 98.8% matched to Lantmäteriet addresses, in seven languages.">
+<script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="wrap site-header">
+  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#find">Find me</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+  </nav>
+</header>
+<main class="note">
+  <a class="back" href="../index.html#work">Back to all work</a>
+  <h1>Bunker Now</h1>
+  <div class="meta"><span class="status">Live app</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
+  <p class="abstract">One tap shows the nearest of Sweden's public shelters, how to get there and what to do, in seven languages. It is built for the roughly two million people in Sweden who were born abroad, many of whom have never heard the word <em>skyddsrum</em>. It was first built in one day at Claude Build Day Stockholm in September 2026. It is not an official service.</p>
+
+  <h2>Data</h2>
+  <ul>
+    <li><strong>Shelters:</strong> the shelter dataset of Myndigheten för civilt försvar, converted from SWEREF 99 TM to WGS84 and filtered against the agency's register of active shelters dated 26 October 2026. That gives 62,739 shelters with about 6.7 million places; inactive and restricted records are excluded.</li>
+    <li><strong>Addresses:</strong> Lantmäteriet's address points (CC BY 4.0), matched within 100 metres with a k-d tree. 61,961 shelters, or 98.8%, have a street address.</li>
+    <li><strong>Population:</strong> Statistics Sweden (SCB), 2025, for the analysis by municipality.</li>
+  </ul>
+
+  <h2>Method</h2>
+  <ul>
+    <li><strong>Nearest shelter:</strong> great-circle (haversine) distance to every shelter, keeping the three nearest.</li>
+    <li><strong>Travel time:</strong> straight-line distance times 1.3, divided by typical speeds for walking, cycling and driving. The route itself opens in a map app.</li>
+    <li><strong>Five-minute rule:</strong> if the nearest shelter is more than five minutes away, the app first tells people to take cover where they are.</li>
+    <li><strong>Instructions:</strong> a language model may only use a fixed list of official facts from Myndigheten för civilt försvar and Krisinformation, with built-in fallback text. Follow-up questions outside those facts get a fixed refusal.</li>
+    <li><strong>Coverage by municipality:</strong> point-in-polygon on Lantmäteriet district boundaries, for all 290 municipalities.</li>
+  </ul>
+
+  <h2>Access</h2>
+  <ul>
+    <li>Seven languages: Swedish, English, Spanish, Arabic, Persian, Ukrainian and Somali, with right-to-left layout for Arabic and Persian.</li>
+    <li>The Android app bundles the shelter data and finds the nearest shelter offline. The website needs a connection.</li>
+  </ul>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>Travel times are straight-line estimates, not routed.</li>
+    <li>Translations still await review by native speakers.</li>
+    <li>There are no automated tests yet. The data counts are recorded in a statistics file that is regenerated with each data update.</li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://shelter-now-eta.vercel.app/" target="_blank" rel="noopener">Live app</a></li>
+    <li><a href="https://github.com/eliospina/shelter-now" target="_blank" rel="noopener">Code on GitHub</a></li>
+  </ul>
+  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+</main>
+<footer class="wrap site-footer">
+  <span>Elizabeth Ospina</span>
+  <a href="../index.html">Home</a>
+</footer>
+<script>
+document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});
+</script>
+</body>
+</html>
