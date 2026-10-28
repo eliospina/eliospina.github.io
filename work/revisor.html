@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisor App and Revisor Kommun — Elizabeth Ospina</title>
+<meta name="description" content="Swedish bookkeeping and municipal VAT compensation encoded as deterministic, tested rules: double-entry validation, SKV 4700 VAT return mapping, SIE 4 export, and LEMK-based checks with legal citations.">
+<meta property="og:title" content="Revisor App and Revisor Kommun — technical note by Elizabeth Ospina">
+<meta property="og:description" content="Swedish bookkeeping and municipal VAT compensation encoded as deterministic, tested rules: double-entry validation, SKV 4700 VAT return mapping, SIE 4 export, and LEMK-based checks with legal citations.">
+<script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="wrap site-header">
+  <a href="../index.html" class="brand">Elizabeth Ospina<small>Economist</small></a>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#methods">Methods</a>
+    <a href="../index.html#contact">Contact</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><span></span></button>
+  </nav>
+</header>
+<main class="wrap">
+  <div class="note-hero">
+    <a class="back" href="../index.html#work">All work</a>
+    <h1>Revisor App and Revisor Kommun</h1>
+    <div class="note-meta"><span class="tag accent">Live product · Pilot</span><span>Technical note</span><span>Elizabeth Ospina</span><span>October 2026</span></div>
+  </div>
+  <div class="note-layout">
+    <dl class="keyfacts">
+      <div><dt>Type</dt><dd>Bookkeeping product and municipal pilot</dd></div>
+      <div><dt>Field</dt><dd>Accounting, tax and public finance</dd></div>
+      <div><dt>Law</dt><dd>LEMK (SFS 2005:807), SFS 2005:811, VAT Act (SFS 2023:200)</dd></div>
+      <div><dt>Standards</dt><dd>BAS, SKV 4700, SKV 5933, SIE 4, Peppol BIS 3.0</dd></div>
+      <div><dt>Tests</dt><dd>About 465 automated tests</dd></div>
+      <div><dt>Stack</dt><dd>TypeScript, Next.js, PostgreSQL</dd></div>
+      <div><dt>Site</dt><dd><a href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a></dd></div>
+    </dl>
+    <article class="prose">
+    <p class="abstract">Two products on one codebase. Revisor App is bookkeeping for small Swedish companies. Revisor Kommun reviews municipal VAT compensation. Both encode Swedish rules as deterministic, tested code with a legal or official source for each rule, and use language models only where they cannot change the numbers.</p>
+
+    <h2>Revisor App: rules encoded</h2>
+    <ul>
+      <li><strong>Double-entry ledger.</strong> Every voucher must have at least two lines, no line carries both debit and credit, and debits equal credits in exact decimal arithmetic. Balances are summed in whole öre. Corrections are made by reversing vouchers, not by editing them.</li>
+      <li><strong>VAT return.</strong> All fields of Skatteverket's VAT return (SKV 4700, boxes 05 to 62), the 25, 12, 6 and 0% rates, reverse charge for EU goods and services, imports and domestic construction, and truncation to whole kronor as the tax procedure law requires.</li>
+      <li><strong>Chart of accounts and exchange format.</strong> 85 BAS accounts tagged to VAT-return boxes, and export to SIE type 4 and type 2 with the correct PC8 (CP437) encoding, plus a parser for incoming SIE files.</li>
+      <li><strong>Official data with provenance.</strong> Skatteverket's 2026 monthly tax tables (about 34,600 rows) and the BAS-SRU 2026 mapping are imported with a manifest that records the source URL and a SHA-256 checksum.</li>
+    </ul>
+
+    <h2>Revisor App: where AI is used</h2>
+    <p>An assistant answers questions about the company's own books. It reads figures only through tool calls over the ledger, returns structured output, runs at low temperature, and falls back to rule-based answers when the model is unavailable. A golden set of 20 questions checks its answers.</p>
+    <p>The Claude connector (Model Context Protocol) exposes five tools: VAT per month, recent expenses, unpaid invoices, tax deadlines and profit and loss. All five are read-only. Each access token covers one user and one company, only a hash of it is stored, and access is rechecked on every request through OAuth 2.1 with PKCE.</p>
+
+    <h2 id="kommun">Revisor Kommun: legal basis</h2>
+    <p>Swedish municipalities and regions are compensated for VAT on purchases for their non-taxable activities under the law on VAT compensation (LEMK, SFS 2005:807), its ordinance (SFS 2005:811) and the VAT Act (SFS 2023:200, chapter 8). Revisor Kommun encodes:</p>
+    <ul>
+      <li>The two flat-rate alternatives (6%, or 18% of premises costs plus 5% of the rest), and the threshold where premises exceed one thirteenth of costs and the second alternative pays more.</li>
+      <li>The representation caps per person.</li>
+      <li>Case law cited per rule, including HFD 2013:79 and HFD 2016:51, with superseded interpretations kept as earlier rule versions instead of being deleted.</li>
+    </ul>
+
+    <h2>Revisor Kommun: method</h2>
+    <ul>
+      <li><strong>Six deterministic checks:</strong> flat rate, allocation to the wrong VAT system, representation, borderline cases, rent for special housing, and passenger cars at 50%. Each finding carries its legal reference and a confidence level, certain or likely, and is labelled indicative.</li>
+      <li><strong>A shadow ledger</strong> in whole öre, with period locks that need a stated reason to reopen, correction chains that never delete rows, and account-by-account reconciliation against the municipality's own balances.</li>
+      <li><strong>Input</strong> is the general-ledger export municipalities already produce, as CSV mapped by column or as SIE, and Peppol BIS Billing 3.0 invoices from uploaded files.</li>
+      <li><strong>A 15-item evidence checklist</strong> for the SKV 5933 claim. Amounts on the form are never filled in by the software. The municipality decides.</li>
+    </ul>
+    <p>The municipal module makes no language-model calls.</p>
+
+    <h2>Evidence</h2>
+    <div class="table-box">
+    <table>
+      <thead><tr><th>Measure</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Automated tests</td><td>About 465 cases in 88 files, 31 of them for the municipal module</td></tr>
+        <tr><td>Continuous integration</td><td>Tax-data validation, type check and tests on every change</td></tr>
+        <tr><td>Audit trail</td><td>Separate audit logs for the company and municipal products</td></tr>
+        <tr><td>Hosting</td><td>Compute in Stockholm; database moving to the EU (Frankfurt) with a residency check</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Limitations</h2>
+    <ul>
+      <li>VAT filing produces a signed draft. Direct submission through Skatteverket's API needs partner access and is not live.</li>
+      <li>Revisor Kommun has not yet been run on a real municipal export. Some thresholds are marked as not yet calibrated.</li>
+      <li>Rule versions live in code; moving them to a database table is a planned step.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="refs">
+      <li><a href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a></li>
+      <li><a href="https://revisorapp.se/kommun/pilot" target="_blank" rel="noopener">Revisor Kommun pilot</a></li>
+    </ul>
+      <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+    </article>
+  </div>
+  <nav class="next" aria-label="More work">
+    <div><span>Previous</span><a href="economic-evolution-lab.html">Economic Evolution Lab</a></div>
+    <div style="text-align:right"><span>Next</span><a href="nicho-radar.html">Nicho Radar</a></div>
+  </nav>
+</main>
+<footer class="wrap site-footer">
+  <span>© 2026 Elizabeth Ospina · Stockholm</span>
+  <a href="../index.html">Home</a>
+</footer>
+<script>
+document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});
+</script>
+</body>
+</html>
