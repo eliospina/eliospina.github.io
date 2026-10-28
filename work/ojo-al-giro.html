@@ -5,65 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ojo al Giro — Elizabeth Ospina</title>
 <meta name="description" content="A hand-curated, source-per-row register of aid announced after the August 2026 Colombian earthquake, with totals computed from typed data and an automated rule validator.">
+<meta property="og:title" content="Ojo al Giro — technical note by Elizabeth Ospina">
+<meta property="og:description" content="A hand-curated, source-per-row register of aid announced after the August 2026 Colombian earthquake, with totals computed from typed data and an automated rule validator.">
 <script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 <header class="wrap site-header">
-  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <a href="../index.html" class="brand">Elizabeth Ospina<small>Economist</small></a>
   <nav class="nav" aria-label="Main">
     <a href="../index.html#research">Research</a>
     <a href="../index.html#work">Work</a>
-    <a href="../index.html#find">Find me</a>
-    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+    <a href="../index.html#methods">Methods</a>
+    <a href="../index.html#contact">Contact</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><span></span></button>
   </nav>
 </header>
-<main class="note">
-  <a class="back" href="../index.html#work">Back to all work</a>
-  <h1>Ojo al Giro</h1>
-  <div class="meta"><span class="status">Live register</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
-  <p class="abstract">A public register of the aid announced after the earthquake in Colombia on 10 August 2026. Every row links to its source, and totals are computed from typed data that an automated validator checks on every change. It separates what was announced, disbursed and delivered, and deliberately does not estimate need.</p>
+<main class="wrap">
+  <div class="note-hero">
+    <a class="back" href="../index.html#work">All work</a>
+    <h1>Ojo al Giro</h1>
+    <div class="note-meta"><span class="tag accent">Live register</span><span>Technical note</span><span>Elizabeth Ospina</span><span>October 2026</span></div>
+  </div>
+  <div class="note-layout">
+    <dl class="keyfacts">
+      <div><dt>Type</dt><dd>Public register</dd></div>
+      <div><dt>Field</dt><dd>Humanitarian aid accountability</dd></div>
+      <div><dt>Data</dt><dd>58 sourced rows, to 22 Sep 2026</dd></div>
+      <div><dt>Checks</dt><dd>18 validation rules, 19 tests</dd></div>
+      <div><dt>Law</dt><dd>Ley 1755 de 2015 (Colombia)</dd></div>
+      <div><dt>Stack</dt><dd>Static HTML, JavaScript</dd></div>
+      <div><dt>Code</dt><dd><a href="https://github.com/eliospina/ojo-al-giro" target="_blank" rel="noopener">GitHub</a> · MIT licence</dd></div>
+    </dl>
+    <article class="prose">
+    <p class="abstract">A public register of the aid announced after the earthquake in Colombia on 10 August 2026. Every row links to its source, and totals are computed from typed data that an automated validator checks on every change. It separates what was announced, disbursed and delivered, and deliberately does not estimate need.</p>
 
-  <h2>Data</h2>
-  <ul>
-    <li><strong>58 hand-curated rows</strong> and a timeline of 23 events, current to 22 September 2026.</li>
-    <li><strong>Every row has a source URL.</strong> Most are news media; primary sources include the IOM, Colombia's foreign ministry, the World Bank, OCHA, the European Commission, Norad and the Government of Canada.</li>
-    <li><strong>Exchange rates are dated and cited.</strong> The official Colombian rate (TRM) and other currencies are recorded with their source and date.</li>
-  </ul>
+    <h2>Data</h2>
+    <ul>
+      <li><strong>58 hand-curated rows</strong> and a timeline of 23 events, current to 22 September 2026.</li>
+      <li><strong>Every row has a source URL.</strong> Most are news media; primary sources include the IOM, Colombia's foreign ministry, the World Bank, OCHA, the European Commission, Norad and the Government of Canada.</li>
+      <li><strong>Exchange rates are dated and cited.</strong> The official Colombian rate (TRM) and other currencies are recorded with their source and date.</li>
+    </ul>
 
-  <h2>Method</h2>
-  <ul>
-    <li>Each row declares its class: donation, credit, credit line, in-kind, personnel or proposal. Credit is never counted as a donation.</li>
-    <li>A row already included in a larger total points to it, so it is not counted twice.</li>
-    <li>Amounts written in Spanish number format are parsed and converted only at a cited rate.</li>
-    <li>When an official total conflicts with the itemised sources, it is logged with the reasons and not adopted.</li>
-    <li>From any row, the site drafts a formal information request (<em>derecho de petición</em>) under Ley 1755 de 2015, so citizens can ask the responsible body directly. It never sends it on their behalf.</li>
-  </ul>
+    <h2>Method</h2>
+    <ul>
+      <li>Each row declares its class: donation, credit, credit line, in-kind, personnel or proposal. Credit is never counted as a donation.</li>
+      <li>A row already included in a larger total points to it, so it is not counted twice.</li>
+      <li>Amounts written in Spanish number format are parsed and converted only at a cited rate.</li>
+      <li>When an official total conflicts with the itemised sources, it is logged with the reasons and not adopted.</li>
+      <li>From any row, the site drafts a formal information request (<em>derecho de petición</em>) under Ley 1755 de 2015, so citizens can ask the responsible body directly. It never sends it on their behalf.</li>
+    </ul>
 
-  <h2>Quality</h2>
-  <ul>
-    <li>A validator enforces 18 numbered rules, such as an https source on every row, no credit shown as donation, sums that add up, no circular references, a dated exchange-rate block and the correct legal text in the request.</li>
-    <li>19 automated tests. Both run on every change in continuous integration.</li>
-    <li>A daily job checks ReliefWeb and opens an issue for sources the register does not cite yet. It never writes figures itself.</li>
-  </ul>
+    <h2>Quality</h2>
+    <ul>
+      <li>A validator enforces 18 numbered rules, such as an https source on every row, no credit shown as donation, sums that add up, no circular references, a dated exchange-rate block and the correct legal text in the request.</li>
+      <li>19 automated tests. Both run on every change in continuous integration.</li>
+      <li>A daily job checks ReliefWeb and opens an issue for sources the register does not cite yet. It never writes figures itself.</li>
+    </ul>
 
-  <h2>Limitations</h2>
-  <ul>
-    <li>It tracks announcements, not delivery. No row confirms aid reaching households, and few rows name a territory.</li>
-    <li>It is maintained by one volunteer and depends largely on press sources.</li>
-  </ul>
+    <h2>Limitations</h2>
+    <ul>
+      <li>It tracks announcements, not delivery. No row confirms aid reaching households, and few rows name a territory.</li>
+      <li>It is maintained by one volunteer and depends largely on press sources.</li>
+    </ul>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://ojo-al-giro.vercel.app" target="_blank" rel="noopener">Live register</a></li>
-    <li><a href="https://github.com/eliospina/ojo-al-giro" target="_blank" rel="noopener">Code on GitHub</a></li>
-  </ul>
-  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+    <h2>Links</h2>
+    <ul class="refs">
+      <li><a href="https://ojo-al-giro.vercel.app" target="_blank" rel="noopener">Live register</a></li>
+      <li><a href="https://github.com/eliospina/ojo-al-giro" target="_blank" rel="noopener">Code on GitHub</a></li>
+    </ul>
+      <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+    </article>
+  </div>
+  <nav class="next" aria-label="More work">
+    <div><span>Previous</span><a href="neuromesure.html">Neuromesure</a></div>
+    <div style="text-align:right"><span>Next</span><a href="bunker-now.html">Bunker Now</a></div>
+  </nav>
 </main>
 <footer class="wrap site-footer">
-  <span>Elizabeth Ospina</span>
+  <span>© 2026 Elizabeth Ospina · Stockholm</span>
   <a href="../index.html">Home</a>
 </footer>
 <script>

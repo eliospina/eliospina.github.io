@@ -4,217 +4,337 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elizabeth Ospina — Economics and technology</title>
-<meta name="description" content="Economist building technology: macroeconomic research with a citable DOI, Swedish bookkeeping and municipal VAT tools, a privacy-first care system and public-interest data projects. Each project is documented with its method, evidence and limits.">
+<meta name="description" content="Economist working on economic models, legal rules and public data that can be checked: macroeconomic research with a citable DOI, Swedish bookkeeping and municipal VAT systems, a privacy-first care system and public-interest data projects.">
+<meta property="og:title" content="Elizabeth Ospina — Economics and technology">
+<meta property="og:description" content="Economic models, legal rules and public data that can be checked. Research, method and evidence for every project.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://eliospina.github.io/portrait.jpg">
 <script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Elizabeth Ospina","jobTitle":"Economist","address":{"@type":"PostalAddress","addressLocality":"Stockholm","addressCountry":"SE"},"alumniOf":"Universidad Libre","knowsLanguage":["es","en","sv"],"sameAs":["https://orcid.org/0009-0004-7291-3340","https://github.com/eliospina","https://linkedin.com/in/42eliza","https://elispi.substack.com"]}
+</script>
 </head>
 <body>
 <header class="wrap site-header">
-  <a href="#top" class="brand">Elizabeth Ospina</a>
+  <a href="#top" class="brand">Elizabeth Ospina<small>Economist</small></a>
   <nav class="nav" aria-label="Main">
+    <a href="#agenda">Agenda</a>
     <a href="#research">Research</a>
     <a href="#work">Work</a>
-    <a href="#bring">What I bring</a>
-    <a href="#background">Background</a>
-    <a href="#find">Find me</a>
-    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+    <a href="#methods">Methods</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><span></span></button>
   </nav>
 </header>
 
 <main>
   <section id="top" class="wrap hero">
     <div class="hero-grid">
-      <h1>Economics <em>and</em> technology.</h1>
-      <div class="portrait">
-        <img src="portrait.jpg" alt="Elizabeth Ospina" onerror="this.parentNode.remove()">
-      </div>
+      <h1 class="h-display">Economics <em>and</em> technology.</h1>
+      <figure class="portrait">
+        <div class="frame"><img src="portrait.jpg" alt="Portrait of Elizabeth Ospina" width="340" height="425"></div>
+        <figcaption><span>Elizabeth Ospina</span><span>Stockholm</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <section id="research" class="wrap">
-    <div class="section">
-      <h2 class="label">Research</h2>
-      <div class="section-body">
-        <div class="feature">
-          <div>
-            <span class="status">Published software · DOI</span>
-            <h3 style="margin-top:16px">Economic Evolution Lab</h3>
-            <p>A reproducible library of macroeconomic models: a real business cycle model and a three-equation New Keynesian DSGE. The equilibrium conditions are written symbolically and solved to first order with the generalized Schur (QZ) method of Klein (2000), with determinacy checked by the Blanchard-Kahn condition. Rational expectations and adaptive learning can be swapped inside the same model.</p>
-            <p>The main finding is methodological. Comparing a fixed forecast with a constant-gain learning forecast using the standard Clark-West test rejects a true null about 60% of the time instead of 5%. The library calibrates the test by Monte Carlo, and under the corrected test the 6.2% gain in one-quarter-ahead US inflation forecasts over 1985 to 2019 is not statistically significant.</p>
-            <div class="links" style="margin-top:0">
-              <a href="work/economic-evolution-lab.html">Technical note</a>
-              <a href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">DOI 10.5281/zenodo.20836318</a>
-              <a href="https://github.com/eliospina/economic-evolution-lab" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-          <figure class="figure">
-            <img src="assets/eel/size_gate.png" alt="Distribution of the Clark-West statistic under the null compared with a standard normal: the naive test is oversized, so the statistic is calibrated by Monte Carlo." loading="lazy">
-            <figcaption>Under a fixed-coefficient null, the naive Clark-West statistic is not standard normal. Monte Carlo calibration restores a correct 5% test.</figcaption>
-          </figure>
+  <section id="agenda" class="wrap section">
+    <div class="agenda">
+      <p class="eyebrow"><span class="sec">§ 01</span>Agenda</p>
+      <div>
+        <p class="statement">My work makes economic models, legal rules and public data <em>checkable</em>: every assumption written down, every rule linked to its source, every number traceable.</p>
+        <div class="pillars">
+          <div class="pillar"><h3>Models you can audit</h3><p>Macroeconomic models specified symbolically, solved reproducibly and tested with statistics that are calibrated before they are believed.</p></div>
+          <div class="pillar"><h3>Rules you can trace</h3><p>Tax and accounting law encoded as tested code, each check linked to its statute, case or official table.</p></div>
+          <div class="pillar"><h3>Data you can verify</h3><p>Public procurement, disaster aid and civil-defence data, curated with a source for every figure.</p></div>
+          <div class="pillar"><h3>Care with guardrails</h3><p>Language models allowed to propose, never to decide: safety rules for vulnerable people are enforced in code.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="work" class="wrap">
-    <div class="section">
-      <h2 class="label">Work</h2>
-      <div class="section-body">
-        <p class="lede">Each project below states its method, its evidence and its current limits. Every technical note was checked against the project's source code in October 2026.</p>
+  <section class="wrap" aria-label="Key figures">
+    <div class="figures">
+      <div class="fig-item"><span class="value num">60%<small> → 5%</small></span><span class="what">How often a standard forecast test wrongly rejects a true null, before and after Monte Carlo calibration.</span><span class="src">Economic Evolution Lab</span></div>
+      <div class="fig-item"><span class="value num">1,710</span><span class="what">Open-access studies, each DOI checked in Crossref, behind the care system's crisis protocols.</span><span class="src">NeuroLjus</span></div>
+      <div class="fig-item"><span class="value num">760<small>+</small></span><span class="what">Automated tests across the projects below: correctness, validation and statistical size checks.</span><span class="src">Seven projects</span></div>
+      <div class="fig-item"><span class="value num">62,739</span><span class="what">Active public shelters in Sweden mapped, 98.8% matched to a street address.</span><span class="src">Bunker Now</span></div>
+    </div>
+  </section>
 
-        <h3 class="label group-title">Applied economics</h3>
+  <section id="research" class="wrap section">
+    <div class="section-head">
+      <p class="eyebrow"><span class="sec">§ 02</span>Research</p>
+      <p class="lead">Economic models whose structure is explicit and whose forecast claims survive a test that is correctly sized.</p>
+    </div>
+    <div class="research">
+      <div>
+        <div class="tag-row"><span class="tag accent">Published software</span><span class="tag">DOI · Zenodo</span><span class="tag">MIT licence</span></div>
+        <h3>Economic Evolution Lab</h3>
+        <p>A reproducible library of macroeconomic models: a real business cycle model and a three-equation New Keynesian DSGE. Equilibrium conditions are written symbolically and solved to first order with the generalized Schur (QZ) method of Klein (2000), with determinacy checked by the Blanchard-Kahn condition. Rational expectations and adaptive learning can be swapped inside the same model.</p>
+        <p>The standard Clark-West test, applied to fixed versus constant-gain learning forecasts, rejects a true null about 60% of the time instead of 5%. The library calibrates it by Monte Carlo. Under the corrected test, the 6.2% gain in one-quarter-ahead US inflation forecasts over 1985 to 2019 is not statistically significant.</p>
+        <div class="finding">
+          <div><span class="value num">60%<span class="arrow">→</span>4.7%</span><span class="what">Rejection rate of a nominal 5% test, naive versus calibrated.</span></div>
+          <div><span class="value num">p ≈ 0.16</span><span class="what">For the 6.2% forecasting gain from adaptive learning, after correction.</span></div>
+        </div>
+        <div class="links">
+          <a class="textlink" href="work/economic-evolution-lab.html">Read the technical note</a>
+          <a class="textlink" href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20836318</a>
+          <a class="textlink" href="https://github.com/eliospina/economic-evolution-lab" target="_blank" rel="noopener">Source code</a>
+        </div>
+        <details class="cite">
+          <summary>Cite this work (BibTeX)</summary>
+<pre>@software{ospina_2026_eel,
+  author    = {Ospina, Elizabeth},
+  title     = {Economic Evolution Lab (EEL)},
+  version   = {0.1.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20836318},
+  url       = {https://doi.org/10.5281/zenodo.20836318}
+}</pre>
+        </details>
+      </div>
+      <figure class="plate">
+        <img src="assets/eel/size_gate.png" alt="Histogram of the Clark-West statistic under a no-adaptation null, shifted well to the right of the standard normal curve the naive test assumes." width="1832" height="1283">
+        <figcaption><b>Fig. 1</b>Under a fixed-coefficient null the naive Clark-West statistic is not standard normal, so its p-values cannot be trusted. Monte Carlo calibration restores a correct 5% test.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Revisor App</h3>
-            <span class="status">Live product</span>
-          </div>
+  <section id="work" class="wrap section">
+    <div class="section-head">
+      <p class="eyebrow"><span class="sec">§ 03</span>Work</p>
+      <p class="lead">Seven systems, each stated with its method, its evidence and its present limits. Every technical note was checked against the project's source code in October 2026.</p>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><p class="eyebrow">Applied economics</p><p class="eyebrow">01 – 03</p></div>
+
+      <article class="project">
+        <div class="idx">01</div>
+        <div>
+          <h3>Revisor App</h3>
+          <p class="claim">Swedish bookkeeping law, written as tested code.</p>
+          <span class="tag accent">Live product</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>Small Swedish companies need bookkeeping that follows Swedish accounting and VAT rules without hiring an accountant for every question.</dd>
-            <dt>Method</dt><dd>Swedish rules encoded as deterministic, tested code: double-entry validation in exact decimal arithmetic, the full SKV 4700 VAT return mapping, SIE 4 export, and 2026 tax tables imported from Skatteverket with checksummed provenance. The Claude connector is read-only.</dd>
-            <dt>Evidence</dt><dd>About 465 automated tests run in continuous integration.</dd>
-            <dt>Limit</dt><dd>VAT filing produces a signed draft; direct submission to Skatteverket is not live yet.</dd>
+            <dt>Method</dt><dd>Double-entry validation in exact decimal arithmetic, the full SKV 4700 VAT return mapping, SIE 4 export, and Skatteverket's 2026 tax tables imported with checksummed provenance. The Claude connector is read-only.</dd>
+            <dt>Evidence</dt><dd>About 465 automated tests run on every change.</dd>
+            <dt>Limit</dt><dd class="limit">VAT filing produces a signed draft; direct submission to Skatteverket is not live yet.</dd>
           </dl>
-          <div class="links"><a href="work/revisor.html">Technical note</a><a href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/revisor.html">Technical note</a><a class="textlink" href="https://revisorapp.se" target="_blank" rel="noopener">revisorapp.se</a></div>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Revisor Kommun</h3>
-            <span class="status">Pilot</span>
-          </div>
+      <article class="project">
+        <div class="idx">02</div>
+        <div>
+          <h3>Revisor Kommun</h3>
+          <p class="claim">Municipal VAT compensation, checked rule by rule against the law.</p>
+          <span class="tag accent">Pilot</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>Municipalities can leave VAT compensation unclaimed, or claim it wrongly, under the law on VAT compensation for municipalities (LEMK, SFS 2005:807).</dd>
             <dt>Method</dt><dd>Six rule-based checks grounded in LEMK, its ordinance (SFS 2005:811) and case law such as HFD 2013:79 and HFD 2016:51. Each finding cites its legal source and a confidence level. A ledger in whole öre adds period locks and reconciliation against the municipality's own balances.</dd>
             <dt>Evidence</dt><dd>31 test files for the municipal module and a 15-item evidence checklist for the SKV 5933 claim.</dd>
-            <dt>Limit</dt><dd>Not yet run on a real municipal export. Amounts on the claim form are never filled in automatically.</dd>
+            <dt>Limit</dt><dd class="limit">Not yet run on a real municipal export. Amounts on the claim form are never filled in automatically.</dd>
           </dl>
-          <div class="links"><a href="work/revisor.html#kommun">Technical note</a><a href="https://revisorapp.se/kommun/pilot" target="_blank" rel="noopener">Pilot</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/revisor.html#kommun">Technical note</a><a class="textlink" href="https://revisorapp.se/kommun/pilot" target="_blank" rel="noopener">Pilot</a></div>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Nicho Radar</h3>
-            <span class="status">Prototype</span>
-          </div>
+      <article class="project">
+        <div class="idx">03</div>
+        <div>
+          <h3>Nicho Radar</h3>
+          <p class="claim">Where Nordic public money buys the same software again and again.</p>
+          <span class="tag">Prototype</span>
+        </div>
+        <div class="detail">
           <dl>
-            <dt>Problem</dt><dd>Which software needs do many separate Nordic public buyers procure again and again?</dd>
+            <dt>Problem</dt><dd>Which software needs do many separate Nordic public buyers procure repeatedly?</dd>
             <dt>Method</dt><dd>597 notices from TED, the EU's public procurement journal, for software and IT services (CPV 48 and 72) in Sweden, Norway, Denmark and Finland. Notices are grouped along the CPV code hierarchy, and a niche counts when at least two different buyers procure it.</dd>
             <dt>Evidence</dt><dd>56 niches covering 566 of the 597 notices; six automated tests.</dd>
-            <dt>Limit</dt><dd>A four-week snapshot (26 August to 23 September 2026), and the largest groups are broad CPV categories.</dd>
+            <dt>Limit</dt><dd class="limit">A four-week snapshot (26 August to 23 September 2026), and the largest groups are broad CPV categories.</dd>
           </dl>
-          <div class="links"><a href="work/nicho-radar.html">Technical note</a><a href="https://nordic-nicho-radar.vercel.app" target="_blank" rel="noopener">Live demo</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/nicho-radar.html">Technical note</a><a class="textlink" href="https://nordic-nicho-radar.vercel.app" target="_blank" rel="noopener">Live demo</a></div>
+        </div>
+      </article>
+    </div>
 
-        <h3 class="label group-title">Care and cognition</h3>
+    <div class="group">
+      <div class="group-head"><p class="eyebrow">Care and cognition</p><p class="eyebrow">04 – 05</p></div>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>NeuroLjus</h3>
-            <span class="status">Research prototype</span>
-          </div>
+      <article class="project">
+        <div class="idx">04</div>
+        <div>
+          <h3>NeuroLjus</h3>
+          <p class="claim">A care protocol a caregiver can write in plain words, with safety enforced in code.</p>
+          <span class="tag">Research prototype</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>Autistic people who need full support often cannot say what they need, and their caregivers carry that work alone.</dd>
-            <dt>Method</dt><dd>A language model only proposes settings inside a strict schema. A deterministic, tested planner turns them into a portable care protocol. Safety rules are enforced in code: local risk escalation, safety limits the model cannot lower, and a caregiver who starts and stops every routine. The camera layer runs on the device and measures movement, not emotions.</dd>
+            <dt>Method</dt><dd>A language model only proposes settings inside a strict schema. A deterministic, tested planner turns them into a portable care protocol. Local risk escalation, safety limits the model cannot lower and a caregiver who starts and stops every routine are enforced in code. The camera layer runs on the device and measures movement, not emotions.</dd>
             <dt>Evidence</dt><dd>A library of 1,710 open-access studies with DOIs checked in Crossref and retracted papers excluded, 10 crisis protocols that cite it, 146 automated tests, and a published validation plan.</dd>
-            <dt>Limit</dt><dd>No physical robot is connected yet, and the signals have not been validated with people.</dd>
+            <dt>Limit</dt><dd class="limit">No physical robot is connected yet, and the signals have not been validated with people.</dd>
           </dl>
-          <div class="links"><a href="work/neuroljus.html">Technical note</a><a href="https://neuroljus.com" target="_blank" rel="noopener">neuroljus.com</a><a href="https://github.com/eliospina/neuroljus-canon-stable" target="_blank" rel="noopener">Code</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/neuroljus.html">Technical note</a><a class="textlink" href="https://neuroljus.com" target="_blank" rel="noopener">neuroljus.com</a><a class="textlink" href="https://github.com/eliospina/neuroljus-canon-stable" target="_blank" rel="noopener">Source code</a></div>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Neuromesure</h3>
-            <span class="status">Prototype</span>
-          </div>
+      <article class="project">
+        <div class="idx">05</div>
+        <div>
+          <h3>Neuromesure</h3>
+          <p class="claim">Thinking time, measured with a taxonomy from cognitive science.</p>
+          <span class="tag">Prototype</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>People have no simple way to see how their thinking time is spent, and whether it leads anywhere.</dd>
-            <dt>Method</dt><dd>Free-text thought reports are labelled by a language model with a taxonomy drawn from cognitive science, including directed, free and stuck thought (Christoff et al., 2016). Metrics are descriptive and time-weighted, with minimum sample sizes and "coincides, not causes" wording.</dd>
+            <dt>Method</dt><dd>Free-text thought reports are labelled by a language model with a taxonomy that includes directed, free and stuck thought (Christoff et al., 2016). Metrics are descriptive and time-weighted, with minimum sample sizes and "coincides, not causes" wording.</dd>
             <dt>Evidence</dt><dd>94 unit tests, and 92% label stability across repeated runs on a 12-item test set.</dd>
-            <dt>Limit</dt><dd>Not yet a validated psychometric instrument. That needs expert-labelled data and reliability testing.</dd>
+            <dt>Limit</dt><dd class="limit">Not yet a validated psychometric instrument. That needs expert-labelled data and reliability testing.</dd>
           </dl>
-          <div class="links"><a href="work/neuromesure.html">Technical note</a><a href="https://neuromesure.com" target="_blank" rel="noopener">neuromesure.com</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/neuromesure.html">Technical note</a><a class="textlink" href="https://neuromesure.com" target="_blank" rel="noopener">neuromesure.com</a></div>
+        </div>
+      </article>
+    </div>
 
-        <h3 class="label group-title">Public interest</h3>
+    <div class="group">
+      <div class="group-head"><p class="eyebrow">Public interest</p><p class="eyebrow">06 – 07</p></div>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Ojo al Giro</h3>
-            <span class="status">Live register</span>
-          </div>
+      <article class="project">
+        <div class="idx">06</div>
+        <div>
+          <h3>Ojo al Giro</h3>
+          <p class="claim">Promised earthquake aid, each figure traced to its source.</p>
+          <span class="tag accent">Live register</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>After the earthquake in Colombia on 10 August 2026, announcements of aid were hard to follow and to hold to account.</dd>
             <dt>Method</dt><dd>A hand-curated register where every row links to its source. It separates announced, disbursed and delivered aid, prevents double counting and credits shown as donations, and converts currencies only at cited, dated rates. It can draft a formal information request under Colombian law (Ley 1755 de 2015).</dd>
             <dt>Evidence</dt><dd>58 sourced rows, checked on every change by a validator with 18 rules and 19 tests.</dd>
-            <dt>Limit</dt><dd>It tracks announcements, not delivery to households.</dd>
+            <dt>Limit</dt><dd class="limit">It tracks announcements, not delivery to households.</dd>
           </dl>
-          <div class="links"><a href="work/ojo-al-giro.html">Technical note</a><a href="https://ojo-al-giro.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/eliospina/ojo-al-giro" target="_blank" rel="noopener">Code</a></div>
-        </article>
+          <div class="links"><a class="textlink" href="work/ojo-al-giro.html">Technical note</a><a class="textlink" href="https://ojo-al-giro.vercel.app" target="_blank" rel="noopener">Live register</a><a class="textlink" href="https://github.com/eliospina/ojo-al-giro" target="_blank" rel="noopener">Source code</a></div>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Bunker Now</h3>
-            <span class="status">Live app</span>
-          </div>
+      <article class="project">
+        <div class="idx">07</div>
+        <div>
+          <h3>Bunker Now</h3>
+          <p class="claim">The nearest shelter, in your language, in one tap.</p>
+          <span class="tag accent">Live app</span>
+        </div>
+        <div class="detail">
           <dl>
             <dt>Problem</dt><dd>About two million people in Sweden were born abroad, and many do not know where the nearest shelter is or what the alarms mean.</dd>
-            <dt>Method</dt><dd>The nearest of 62,739 active public shelters from the register of Myndigheten för civilt försvar, by great-circle distance, with 98.8% matched to Lantmäteriet street addresses. If the shelter is more than five minutes away, the app first says to take cover where you are. Seven languages, and offline search in the Android app.</dd>
-            <dt>Evidence</dt><dd>Built in one day at Claude Build Day Stockholm, September 2026, and kept up to date with the October 2026 register.</dd>
-            <dt>Limit</dt><dd>Travel times are straight-line estimates, and translations still await native-speaker review.</dd>
+            <dt>Method</dt><dd>The nearest of 62,739 active public shelters from the register of Myndigheten för civilt försvar, by great-circle distance. If it is more than five minutes away, the app first says to take cover where you are. Seven languages, and offline search in the Android app.</dd>
+            <dt>Evidence</dt><dd>98.8% of shelters matched to Lantmäteriet street addresses; built in one day at Claude Build Day Stockholm and updated with the October 2026 register.</dd>
+            <dt>Limit</dt><dd class="limit">Travel times are straight-line estimates, and translations still await native-speaker review.</dd>
           </dl>
-          <div class="links"><a href="work/bunker-now.html">Technical note</a><a href="https://shelter-now-eta.vercel.app/" target="_blank" rel="noopener">Live app</a><a href="https://github.com/eliospina/shelter-now" target="_blank" rel="noopener">Code</a></div>
-        </article>
-      </div>
+          <div class="links"><a class="textlink" href="work/bunker-now.html">Technical note</a><a class="textlink" href="https://shelter-now-eta.vercel.app/" target="_blank" rel="noopener">Live app</a><a class="textlink" href="https://github.com/eliospina/shelter-now" target="_blank" rel="noopener">Source code</a></div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section id="bring" class="wrap">
-    <div class="section">
-      <h2 class="label">What I bring</h2>
-      <div class="section-body stack-lg">
-        <article class="article">
-          <h3>To companies and municipalities</h3>
-          <p>I build software that works inside your rules. Revisor Kommun reviews municipal VAT compensation from the general-ledger exports municipalities already produce, as CSV or SIE files. Revisor App is a bookkeeping system for Swedish companies, and it works as a read-only connector for Claude: you can ask your own accounts questions in plain language. Behind it is an economist with a master's-level degree and more than fifteen years across economic development, credit and investment advisory, and running a business of my own.</p>
-        </article>
-        <article class="article">
-          <h3>To investors and collaborators</h3>
-          <p>NeuroLjus is an open-source care system for autistic people who need full support. A caregiver describes the person in plain language, and the system turns it into a structured care protocol: today it runs on a phone, and it is specified so a care robot can follow it. Camera signals stay on the device. I presented it on the main stage at Claude Founder House Stockholm in October 2026, and I am looking for people who want to build it with me.</p>
-        </article>
-      </div>
+  <section id="methods" class="wrap section">
+    <div class="section-head">
+      <p class="eyebrow"><span class="sec">§ 04</span>Methods</p>
+      <p class="lead">The same toolkit, applied across fields. A filled dot marks a core method of the project; an open dot, a supporting one.</p>
     </div>
+    <div class="matrix-box">
+      <table class="matrix">
+        <caption class="eyebrow" style="text-align:left;padding:14px 0">Methods by project</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="text-align:left;padding-left:0">Method</th>
+            <th scope="col">Economic<br>Evolution Lab</th>
+            <th scope="col">Revisor<br>App</th>
+            <th scope="col">Revisor<br>Kommun</th>
+            <th scope="col">Nicho<br>Radar</th>
+            <th scope="col">Neuro­Ljus</th>
+            <th scope="col">Neuro­mesure</th>
+            <th scope="col">Ojo al<br>Giro</th>
+            <th scope="col">Bunker<br>Now</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Structural macroeconomic models<span>DSGE, RBC, perturbation solution</span></th><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">Forecast evaluation and inference<span>Clark-West, Giacomini-White, Monte Carlo</span></th><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">Law and policy as code<span>Statutes, case law, official tables</span></th><td></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td></td></tr>
+          <tr><th scope="row">Accounting and reconciliation<span>Double entry, ledgers, audit trails</span></th><td></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td></td></tr>
+          <tr><th scope="row">Public data with provenance<span>Sources, checksums, dated rates</span></th><td><span class="dot half" role="img" aria-label="supporting"></span></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td></tr>
+          <tr><th scope="row">Constrained language models<span>Schemas, tools, fallbacks</span></th><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td></tr>
+          <tr><th scope="row">Measurement design<span>Taxonomies, descriptive metrics</span></th><td></td><td></td><td></td><td></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td></tr>
+          <tr><th scope="row">On-device computer vision<span>Face and hand landmarks</span></th><td></td><td></td><td></td><td></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">Geospatial analysis<span>Distance, projection, point-in-polygon</span></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="dot" role="img" aria-label="core"></span></td></tr>
+          <tr><th scope="row">Automated testing<span>Unit, validation and size tests</span></th><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot half" role="img" aria-label="supporting"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td><span class="dot" role="img" aria-label="core"></span></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend"><span><i class="dot" aria-hidden="true"></i>Core method</span><span><i class="dot half" aria-hidden="true"></i>Supporting method</span></div>
   </section>
 
-  <section id="background" class="wrap">
-    <div class="section">
-      <h2 class="label">Background</h2>
-      <div class="section-body">
-        <p class="prose-xl">Economics degree from Universidad Libre, Colombia, recognised in Sweden as a master's. Before software: economic development projects reaching 46,000 people, financial and credit advisory, and my own restaurant. Spanish, English, Swedish.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="find" class="wrap">
-    <div class="section" style="padding-bottom:clamp(40px,5vw,64px)">
-      <h2 class="label">Find me</h2>
-      <div class="section-body">
-        <div class="find-grid">
-          <a href="https://linkedin.com/in/42eliza" target="_blank" rel="noopener"><span class="big">LinkedIn</span><span class="small">linkedin.com/in/42eliza</span></a>
-          <a href="https://github.com/eliospina" target="_blank" rel="noopener"><span class="big">GitHub</span><span class="small">github.com/eliospina</span></a>
-          <a href="https://orcid.org/0009-0004-7291-3340" target="_blank" rel="noopener"><span class="big">ORCID</span><span class="small">0009-0004-7291-3340</span></a>
-          <a href="https://elispi.substack.com" target="_blank" rel="noopener"><span class="big">Substack</span><span class="small">elispi.substack.com</span></a>
-          <a href="https://x.com/Kymeraway" target="_blank" rel="noopener"><span class="big">X</span><span class="small">x.com/Kymeraway</span></a>
+  <section id="about" class="wrap section">
+    <div class="about">
+      <p class="eyebrow"><span class="sec">§ 05</span>About</p>
+      <div>
+        <p class="lead">I am an economist. For fifteen years I worked where economics meets people: development projects, credit and investment advisory, and a business of my own. Since 2024 I also build the systems myself, held to the standard I would ask of any model: state the assumptions, cite the source, test the result.</p>
+        <dl class="facts" style="margin-top:clamp(36px,4vw,56px)">
+          <div><dt>Training</dt><dd>Economics, Universidad Libre, Colombia. Recognised in Sweden as a master's degree.</dd></div>
+          <div><dt>Experience</dt><dd>Economic development projects reaching 46,000 people; financial and credit advisory; owner of a restaurant.</dd></div>
+          <div><dt>Recognition</dt><dd>Presented NeuroLjus on the main stage of the Builder showcase at Claude Founder House Stockholm, October 2026.</dd></div>
+          <div><dt>Languages</dt><dd>Spanish, English, Swedish.</dd></div>
+          <div><dt>Based in</dt><dd>Stockholm, Sweden.</dd></div>
+          <div><dt>ORCID</dt><dd><a class="textlink" href="https://orcid.org/0009-0004-7291-3340" target="_blank" rel="noopener">0009-0004-7291-3340</a></dd></div>
+        </dl>
+        <div class="offers">
+          <div>
+            <h3>To companies and municipalities</h3>
+            <p>Software that works inside your rules. Revisor Kommun reviews municipal VAT compensation from the general-ledger exports municipalities already produce, as CSV or SIE files. Revisor App is bookkeeping for Swedish companies with a read-only connector for Claude, so you can ask your own accounts questions in plain language.</p>
+          </div>
+          <div>
+            <h3>To investors and collaborators</h3>
+            <p>NeuroLjus is an open-source care system for autistic people who need full support. Today it runs on a phone, and its protocol is specified so a care robot can follow it. Camera signals stay on the device. I am looking for people who want to build it with me.</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap section">
+    <div class="section-head">
+      <p class="eyebrow"><span class="sec">§ 06</span>Contact</p>
+      <p class="lead">For research, municipal pilots or NeuroLjus, write to me on LinkedIn.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="https://linkedin.com/in/42eliza" target="_blank" rel="noopener"><span class="big">LinkedIn</span><span class="small">linkedin.com/in/42eliza</span></a>
+      <a href="https://orcid.org/0009-0004-7291-3340" target="_blank" rel="noopener"><span class="big">ORCID</span><span class="small">0009-0004-7291-3340</span></a>
+      <a href="https://github.com/eliospina" target="_blank" rel="noopener"><span class="big">GitHub</span><span class="small">github.com/eliospina</span></a>
+      <a href="https://elispi.substack.com" target="_blank" rel="noopener"><span class="big">Substack</span><span class="small">elispi.substack.com</span></a>
+      <a href="https://x.com/Kymeraway" target="_blank" rel="noopener"><span class="big">X</span><span class="small">x.com/Kymeraway</span></a>
     </div>
   </section>
 </main>
 
 <footer class="wrap site-footer">
-  <span>Elizabeth Ospina</span>
-  <a href="#top">Top</a>
+  <span>© 2026 Elizabeth Ospina · Stockholm</span>
+  <a href="#top">Back to top</a>
 </footer>
 <script>
 document.getElementById('theme-toggle').addEventListener('click',function(){var r=document.documentElement,t=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('eo-theme',t)}catch(e){}});

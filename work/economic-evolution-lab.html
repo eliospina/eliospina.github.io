@@ -5,85 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Economic Evolution Lab — Elizabeth Ospina</title>
 <meta name="description" content="A reproducible library of macroeconomic models (RBC and New Keynesian DSGE) solved by first-order perturbation, with size-calibrated out-of-sample forecast evaluation. DOI 10.5281/zenodo.20836318.">
+<meta property="og:title" content="Economic Evolution Lab — technical note by Elizabeth Ospina">
+<meta property="og:description" content="A reproducible library of macroeconomic models (RBC and New Keynesian DSGE) solved by first-order perturbation, with size-calibrated out-of-sample forecast evaluation. DOI 10.5281/zenodo.20836318.">
 <script>(function(){var s;try{s=localStorage.getItem('eo-theme')}catch(e){}var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 <header class="wrap site-header">
-  <a href="../index.html" class="brand">Elizabeth Ospina</a>
+  <a href="../index.html" class="brand">Elizabeth Ospina<small>Economist</small></a>
   <nav class="nav" aria-label="Main">
     <a href="../index.html#research">Research</a>
     <a href="../index.html#work">Work</a>
-    <a href="../index.html#find">Find me</a>
-    <button id="theme-toggle" type="button" aria-label="Toggle theme"><span></span></button>
+    <a href="../index.html#methods">Methods</a>
+    <a href="../index.html#contact">Contact</a>
+    <button id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><span></span></button>
   </nav>
 </header>
-<main class="note">
-  <a class="back" href="../index.html#research">Back to all work</a>
-  <h1>Economic Evolution Lab</h1>
-  <div class="meta"><span class="status">Published software · DOI</span><span>Technical note</span><span>Elizabeth Ospina</span></div>
-  <p class="abstract">A formalised, reproducible library of macroeconomic models, a real business cycle model and a three-equation New Keynesian DSGE, with a swappable expectations operator and size-calibrated out-of-sample evaluation. It shows that a standard test used to compare adaptive-learning forecasts is badly oversized, corrects it, and finds no significant forecasting gain from adaptation on US inflation.</p>
-
-  <h2>Motivation</h2>
-  <p>Economic models are often distributed as code whose assumptions and derivations are hard to inspect, and whose forecast comparisons rely on asymptotic results that need not hold for the methods being compared. The aim is to make a small set of models explicit, reproducible and auditable, as a base for later work in which automated agents could audit and revise model assumptions.</p>
-
-  <h2>Method</h2>
-  <ul>
-    <li><strong>Formalise.</strong> Equilibrium conditions are written symbolically in SymPy, which differentiates them to build the log-linear system.</li>
-    <li><strong>Solve.</strong> The system <code>A E<sub>t</sub> w<sub>t+1</sub> = B w<sub>t</sub></code> is solved by the generalized Schur (QZ) method of Klein (2000). The steady state is derived analytically, and determinacy is verified with the Blanchard-Kahn condition.</li>
-    <li><strong>Validate.</strong> The solution is checked against the exact closed form where one exists (the Brock-Mirman case with full depreciation), steady-state identities, impulse-response signs and business-cycle moments.</li>
-    <li><strong>Compare expectations.</strong> Rational expectations and Evans-Honkapohja constant-gain adaptive learning are interchangeable modules inside an otherwise identical model.</li>
-    <li><strong>Evaluate honestly.</strong> Clark-West and Giacomini-White statistics are calibrated by Monte Carlo against a fixed-coefficient null before any p-value is read.</li>
-  </ul>
-  <figure class="figure">
-    <img src="../assets/eel/nk_irf.png" alt="Impulse responses of the New Keynesian model to demand, cost-push and monetary policy shocks." loading="lazy">
-    <figcaption>New Keynesian impulse responses to demand, cost-push and monetary shocks reproduce the textbook signatures.</figcaption>
-  </figure>
-
-  <h2>Findings</h2>
-  <p><strong>A methodological result.</strong> Comparing a frozen forecast with a constant-gain learning forecast through the nested Clark-West test is invalid as usually applied. Constant gain carries estimation error that never vanishes, so the statistic is positive even when there is nothing to adapt to. Under a fixed-coefficient null calibrated to the data, the asymptotic one-sided 5% test rejects about 60% of the time. Monte Carlo calibration restores a correct size: about 4.7% rejection, with roughly uniform p-values.</p>
-  <figure class="figure">
-    <img src="../assets/eel/size_gate.png" alt="The nested Clark-West statistic is not standard normal for fixed versus constant-gain forecasts, so size calibration is required." loading="lazy">
-    <figcaption>The size gate: the naive statistic is not N(0,1) under the null.</figcaption>
-  </figure>
-  <p><strong>A substantive null result.</strong> On a long split chosen to favour adaptation (train 1960Q1 to 1984Q4, evaluate 1985Q1 to 2019Q4, n = 140), constant-gain learning lowers one-quarter-ahead inflation RMSE by 6.2%. The size-correct test does not reject the no-adaptation null (Monte Carlo p between 0.15 and 0.17, stable across seeds, gains and alternative nulls). The small edge does not come from the regime change it was expected to help with, and it is driven by a few outliers. An earlier apparent advantage of learning over rational expectations was traced to relaxing the model's cross-equation restrictions, not to adaptation.</p>
-  <div class="table-box">
-  <table>
-    <thead><tr><th>Forecast</th><th>Inflation RMSE</th><th>Change</th></tr></thead>
-    <tbody>
-      <tr><td>Fixed coefficients</td><td>0.1742</td><td>baseline</td></tr>
-      <tr><td>Constant-gain learning</td><td>0.1635</td><td>6.2% lower, not significant</td></tr>
-    </tbody>
-  </table>
+<main class="wrap">
+  <div class="note-hero">
+    <a class="back" href="../index.html#research">All work</a>
+    <h1>Economic Evolution Lab</h1>
+    <div class="note-meta"><span class="tag accent">Published software · DOI</span><span>Technical note</span><span>Elizabeth Ospina</span><span>October 2026</span></div>
   </div>
-  <p>These are failures to reject at the available sample size, not proof that adaptation cannot help.</p>
+  <div class="note-layout">
+    <dl class="keyfacts">
+      <div><dt>Type</dt><dd>Open-source research software</dd></div>
+      <div><dt>Field</dt><dd>Macroeconomics, forecast evaluation</dd></div>
+      <div><dt>Data</dt><dd>FRED, United States, 1960Q1–2019Q4, frozen vintages</dd></div>
+      <div><dt>Tests</dt><dd>32 correctness and size-control tests</dd></div>
+      <div><dt>Stack</dt><dd>Python, SymPy, NumPy, SciPy</dd></div>
+      <div><dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">10.5281/zenodo.20836318</a></dd></div>
+      <div><dt>Code</dt><dd><a href="https://github.com/eliospina/economic-evolution-lab" target="_blank" rel="noopener">GitHub</a> · MIT licence</dd></div>
+    </dl>
+    <article class="prose">
+    <p class="abstract">A formalised, reproducible library of macroeconomic models, a real business cycle model and a three-equation New Keynesian DSGE, with a swappable expectations operator and size-calibrated out-of-sample evaluation. It shows that a standard test used to compare adaptive-learning forecasts is badly oversized, corrects it, and finds no significant forecasting gain from adaptation on US inflation.</p>
 
-  <h2>Reproducibility</h2>
-  <ul>
-    <li>32 correctness and size-control tests.</li>
-    <li>Fixed seeds, pinned dependencies and configuration-driven runs.</li>
-    <li>Frozen vintages of the FRED series are committed, so the empirical numbers reproduce despite later data revisions.</li>
-    <li>Released under the MIT licence with citation metadata and a Zenodo DOI.</li>
-  </ul>
+    <h2>Motivation</h2>
+    <p>Economic models are often distributed as code whose assumptions and derivations are hard to inspect, and whose forecast comparisons rely on asymptotic results that need not hold for the methods being compared. The aim is to make a small set of models explicit, reproducible and auditable, as a base for later work in which automated agents could audit and revise model assumptions.</p>
 
-  <h2>Limitations and next steps</h2>
-  <p>The scope is deliberately narrow: two models solved to first order, and one country. Next steps are a Solow and a Merton model built with the same recipe, and a larger multi-country panel where the output-gap result, large but borderline, can be tested with more power.</p>
+    <h2>Method</h2>
+    <ul>
+      <li><strong>Formalise.</strong> Equilibrium conditions are written symbolically in SymPy, which differentiates them to build the log-linear system.</li>
+      <li><strong>Solve.</strong> The system <code>A E<sub>t</sub> w<sub>t+1</sub> = B w<sub>t</sub></code> is solved by the generalized Schur (QZ) method of Klein (2000). The steady state is derived analytically, and determinacy is verified with the Blanchard-Kahn condition.</li>
+      <li><strong>Validate.</strong> The solution is checked against the exact closed form where one exists (the Brock-Mirman case with full depreciation), steady-state identities, impulse-response signs and business-cycle moments.</li>
+      <li><strong>Compare expectations.</strong> Rational expectations and Evans-Honkapohja constant-gain adaptive learning are interchangeable modules inside an otherwise identical model.</li>
+      <li><strong>Evaluate honestly.</strong> Clark-West and Giacomini-White statistics are calibrated by Monte Carlo against a fixed-coefficient null before any p-value is read.</li>
+    </ul>
+    <figure class="plate">
+      <img src="../assets/eel/nk_irf.png" alt="Impulse responses of the New Keynesian model to demand, cost-push and monetary policy shocks." loading="lazy">
+      <figcaption>New Keynesian impulse responses to demand, cost-push and monetary shocks reproduce the textbook signatures.</figcaption>
+    </figure>
 
-  <h2>References and links</h2>
-  <ul>
-    <li>Ospina, E. (2026). <em>Economic Evolution Lab (EEL)</em>, version 0.1.0. <a href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20836318</a></li>
-    <li>Code: <a href="https://github.com/eliospina/economic-evolution-lab" target="_blank" rel="noopener">github.com/eliospina/economic-evolution-lab</a></li>
-    <li>Klein, P. (2000). Using the generalized Schur form to solve a multivariate linear rational expectations model. <em>Journal of Economic Dynamics and Control</em>, 24(10).</li>
-    <li>Clark, T. E. and West, K. D. (2007). Approximately normal tests for equal predictive accuracy in nested models. <em>Journal of Econometrics</em>, 138(1).</li>
-    <li>Giacomini, R. and White, H. (2006). Tests of conditional predictive ability. <em>Econometrica</em>, 74(6).</li>
-    <li>Evans, G. W. and Honkapohja, S. (2001). <em>Learning and Expectations in Macroeconomics</em>. Princeton University Press.</li>
-  </ul>
-  <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+    <h2>Findings</h2>
+    <p><strong>A methodological result.</strong> Comparing a frozen forecast with a constant-gain learning forecast through the nested Clark-West test is invalid as usually applied. Constant gain carries estimation error that never vanishes, so the statistic is positive even when there is nothing to adapt to. Under a fixed-coefficient null calibrated to the data, the asymptotic one-sided 5% test rejects about 60% of the time. Monte Carlo calibration restores a correct size: about 4.7% rejection, with roughly uniform p-values.</p>
+    <figure class="plate">
+      <img src="../assets/eel/size_gate.png" alt="The nested Clark-West statistic is not standard normal for fixed versus constant-gain forecasts, so size calibration is required." loading="lazy">
+      <figcaption>The size gate: the naive statistic is not N(0,1) under the null.</figcaption>
+    </figure>
+    <p><strong>A substantive null result.</strong> On a long split chosen to favour adaptation (train 1960Q1 to 1984Q4, evaluate 1985Q1 to 2019Q4, n = 140), constant-gain learning lowers one-quarter-ahead inflation RMSE by 6.2%. The size-correct test does not reject the no-adaptation null (Monte Carlo p between 0.15 and 0.17, stable across seeds, gains and alternative nulls). The small edge does not come from the regime change it was expected to help with, and it is driven by a few outliers. An earlier apparent advantage of learning over rational expectations was traced to relaxing the model's cross-equation restrictions, not to adaptation.</p>
+    <div class="table-box">
+    <table>
+      <thead><tr><th>Forecast</th><th>Inflation RMSE</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td>Fixed coefficients</td><td>0.1742</td><td>baseline</td></tr>
+        <tr><td>Constant-gain learning</td><td>0.1635</td><td>6.2% lower, not significant</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>These are failures to reject at the available sample size, not proof that adaptation cannot help.</p>
+
+    <h2>Reproducibility</h2>
+    <ul>
+      <li>32 correctness and size-control tests.</li>
+      <li>Fixed seeds, pinned dependencies and configuration-driven runs.</li>
+      <li>Frozen vintages of the FRED series are committed, so the empirical numbers reproduce despite later data revisions.</li>
+      <li>Released under the MIT licence with citation metadata and a Zenodo DOI.</li>
+    </ul>
+
+    <h2>Limitations and next steps</h2>
+    <p>The scope is deliberately narrow: two models solved to first order, and one country. Next steps are a Solow and a Merton model built with the same recipe, and a larger multi-country panel where the output-gap result, large but borderline, can be tested with more power.</p>
+
+    <h2>How to cite</h2>
+    <div class="table-box"><pre style="margin:16px 0 0;font-family:var(--mono);font-size:12.5px;line-height:1.6;white-space:pre">@software{ospina_2026_eel,
+    author    = {Ospina, Elizabeth},
+    title     = {Economic Evolution Lab (EEL)},
+    version   = {0.1.0},
+    year      = {2026},
+    publisher = {Zenodo},
+    doi       = {10.5281/zenodo.20836318}
+  }</pre></div>
+
+    <h2>References and links</h2>
+    <ul class="refs">
+      <li>Ospina, E. (2026). <em>Economic Evolution Lab (EEL)</em>, version 0.1.0. <a href="https://doi.org/10.5281/zenodo.20836318" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20836318</a></li>
+      <li>Code: <a href="https://github.com/eliospina/economic-evolution-lab" target="_blank" rel="noopener">github.com/eliospina/economic-evolution-lab</a></li>
+      <li>Klein, P. (2000). Using the generalized Schur form to solve a multivariate linear rational expectations model. <em>Journal of Economic Dynamics and Control</em>, 24(10).</li>
+      <li>Clark, T. E. and West, K. D. (2007). Approximately normal tests for equal predictive accuracy in nested models. <em>Journal of Econometrics</em>, 138(1).</li>
+      <li>Giacomini, R. and White, H. (2006). Tests of conditional predictive ability. <em>Econometrica</em>, 74(6).</li>
+      <li>Evans, G. W. and Honkapohja, S. (2001). <em>Learning and Expectations in Macroeconomics</em>. Princeton University Press.</li>
+    </ul>
+      <p class="verified">Every number in this note was checked against the project's source code in October 2026. Where the code and earlier public descriptions disagreed, this note follows the code.</p>
+    </article>
+  </div>
+  <nav class="next" aria-label="More work">
+    <div><span>Previous</span><a href="bunker-now.html">Bunker Now</a></div>
+    <div style="text-align:right"><span>Next</span><a href="revisor.html">Revisor App and Revisor Kommun</a></div>
+  </nav>
 </main>
 <footer class="wrap site-footer">
-  <span>Elizabeth Ospina</span>
+  <span>© 2026 Elizabeth Ospina · Stockholm</span>
   <a href="../index.html">Home</a>
 </footer>
 <script>
