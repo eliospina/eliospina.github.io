@@ -124,7 +124,7 @@
             <div class="tag-row"><span class="tag accent">Live product</span><span class="tag accent">Municipal pilot</span><span class="tag">Applied economics</span></div>
             <h3>Revisor</h3>
             <p class="claim-lg">Swedish bookkeeping and municipal VAT law, written as tested code.</p>
-            <p>Revisor App keeps the books of small Swedish companies. Every voucher must balance in exact decimal arithmetic, balances are kept in whole öre, and corrections are made by reversal, never by editing. The VAT return follows all fields of Skatteverket's form SKV 4700, books export in the SIE 4 standard, and the 2026 tax tables are imported from Skatteverket with a checksum that proves their origin. Its Claude connector can only read.</p>
+            <p>Revisor App keeps the books of small Swedish companies. Every voucher must balance in exact decimal arithmetic, balances are kept in whole öre, and corrections are made by reversal, never by editing. The VAT return follows all fields of Skatteverket's form SKV 4700, books export in the SIE 4 standard, and the 2026 tax tables are imported from Skatteverket with a checksum that proves their origin. Its language model interface can only read.</p>
             <p>Revisor Kommun applies the same discipline to municipal VAT compensation under LEMK (SFS 2005:807). Six rule-based checks, each citing its statute or case law such as HFD 2013:79 and HFD 2016:51, produce indicative findings and a 15-item evidence checklist for the SKV 5933 claim. The software never fills in the amounts: the municipality decides.</p>
             <div class="finding">
               <div><span class="value num">465</span><span class="what">Automated tests across VAT, SIE, payroll, ledger invariants and the municipal checks.</span></div>
@@ -135,11 +135,11 @@
           </div>
           <figure class="plate diagram">
             <svg class="d-desktop" viewBox="0 0 640 470" role="img" aria-labelledby="rev-title">
-              <title id="rev-title">How Revisor works: inputs flow into a double-entry ledger with invariants, which produces the VAT return, SIE export and reports; a read-only Claude connector sits on top; a municipal branch runs six legal checks on ledger exports.</title>
+              <title id="rev-title">How Revisor works: inputs flow into a double-entry ledger with invariants, which produces the VAT return, SIE export and reports; a read-only language model interface sits on top; a municipal branch runs six legal checks on ledger exports.</title>
               <g font-family="Geist, system-ui, sans-serif" font-size="12" fill="var(--ink)">
                 <!-- connector -->
                 <rect x="230" y="14" width="200" height="46" rx="3" fill="var(--chip)" stroke="var(--rule)"/>
-                <text x="330" y="33" text-anchor="middle" font-weight="500">Claude connector</text>
+                <text x="330" y="33" text-anchor="middle" font-weight="500">Language model interface</text>
                 <text x="330" y="49" text-anchor="middle" font-size="11" fill="var(--mute)">5 tools, all read-only · OAuth 2.1</text>
                 <line x1="330" y1="60" x2="330" y2="104" stroke="var(--ink)" stroke-dasharray="3 3"/>
                 <text x="338" y="88" font-size="10.5" fill="var(--mute)">reads only</text>
@@ -193,10 +193,10 @@
               </g>
             </svg>
             <svg class="d-mobile" viewBox="0 0 320 906" role="img" aria-labelledby="rev-title-m">
-              <title id="rev-title-m">How Revisor works: inputs flow into a double-entry ledger with invariants, which produces the VAT return, SIE export and reports; a read-only Claude connector sits on top; a municipal branch runs six legal checks on ledger exports.</title>
+              <title id="rev-title-m">How Revisor works: inputs flow into a double-entry ledger with invariants, which produces the VAT return, SIE export and reports; a read-only language model interface sits on top; a municipal branch runs six legal checks on ledger exports.</title>
               <g font-family="Geist, system-ui, sans-serif" font-size="12" fill="var(--ink)">
                 <rect x="12" y="8" width="296" height="46" rx="3" fill="var(--chip)" stroke="var(--rule)"/>
-                <text x="160" y="27" text-anchor="middle" font-weight="500">Claude connector</text>
+                <text x="160" y="27" text-anchor="middle" font-weight="500">Language model interface</text>
                 <text x="160" y="43" text-anchor="middle" font-size="11" fill="var(--mute)">5 tools, all read-only · OAuth 2.1</text>
                 <text x="294" y="72" text-anchor="end" font-size="10.5" fill="var(--mute)">reads only</text>
                 <rect x="12" y="80" width="268" height="106" rx="3" fill="var(--paper)" stroke="var(--ink)"/>
@@ -244,7 +244,7 @@
                 <text x="24" y="877" font-size="10.5" fill="var(--accent)">amounts never filled in</text>
               </g>
             </svg>
-            <figcaption><b>Fig. 2</b>Revisor's architecture as implemented: rules and invariants live in the ledger, the language model only reads through the connector, and the municipal branch cites the law for every finding.</figcaption>
+            <figcaption><b>Fig. 2</b>Revisor's architecture as implemented: rules and invariants live in the ledger, the language model only reads through the interface, and the municipal branch cites the law for every finding.</figcaption>
           </figure>
         </div>
       </article>
