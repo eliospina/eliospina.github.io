@@ -222,4 +222,5 @@ table.matrix{width:100%;min-width:760px;border-collapse:collapse;font-size:14px}
 .plate.diagram svg{width:100%;height:auto;display:block}
 .plate.diagram figcaption{color:var(--mute)}
 .plate.diagram figcaption b{color:var(--accent)}
-@media (max-width:720px){.plate.diagram{overflow-x:auto}.plate.diagram svg{min-width:560px}}
+.plate.diagram .d-mobile{display:none}
+@media (max-width:720px){.plate.diagram .d-desktop{display:none}.plate.diagram .d-mobile{display:block}}
